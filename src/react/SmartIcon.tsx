@@ -5,25 +5,32 @@ import { getRegistry } from "../shared/registry";
 export type SmartIconProps = {
   name: string;
   family?: string;
-  size?: number;
-  color?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  prefixMatch?: boolean; // New prop for fuzzy matching
-};
+  prefixMatch?: boolean;
+  fallbackIcon?: React.ComponentType<any>;
+} & React.ComponentProps<'svg'>; // Spread all SVG props
 
 export const SmartIcon: React.FC<SmartIconProps> = ({
   name,
   family = "lucide",
-  size = 20,
-  color = "black",
-  className,
-  style,
-  prefixMatch = false, // Default to false for backward compatibility
+  prefixMatch = false,
+  fallbackIcon: FallbackIcon,
+  ...svgProps // Spread all other props to the icon component
 }) => {
   const key = findIconKey(name, family, prefixMatch);
-  if (!key) return null;
-
-  const Icon = getRegistry()[family][key].component;
-  return <Icon size={size} color={color} className={className} style={style} />;
+  
+  // If no icon found and no fallback, return null
+  if (!key && !FallbackIcon) return null;
+  
+  // If no icon found but fallback exists, render fallback
+  if (!key && FallbackIcon) {
+    return <FallbackIcon {...svgProps} />;
+  }
+  
+  // Render the found icon with all spread props
+  if (key) {
+    const Icon = getRegistry()[family][key].component;
+    return <Icon {...svgProps} />;
+  }
+  
+  return null;
 };
