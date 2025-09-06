@@ -1,3 +1,2 @@
-export { SmartIcon } from "./SmartIcon";
-export { registerIconFamily, getRegistry } from "./core/registry";
-export type { IconEntry, IconMap, IconFamilyRegistry } from "./core/types";
+// Main entry point - exports React version by default
+export * from "./react";
