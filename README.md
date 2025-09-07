@@ -334,6 +334,26 @@ When `prefixMatch={true}` is enabled, the component will attempt to find icons u
 - `"set"` → matches `"settings"`
 - `"mai"` → matches `"mail"`
 
+### Sentence Matching
+
+When `sentenceMatch={true}` is enabled, the component will:
+
+1. **Split Input**: Break the input into individual words
+2. **Reverse Search**: Start from the last word (most specific) and work backwards
+3. **Word Matching**: Find the first word that matches an icon name or synonym
+4. **Combined with Prefix**: If `prefixMatch` is also enabled, apply fuzzy matching to each word
+
+**Examples:**
+- `"manali hotel"` → finds `"hotel"` icon
+- `"luxury restaurant"` → finds `"restaurant"` icon
+- `"red car"` → finds `"car"` icon
+- `"coffee shop"` → finds `"coffee"` icon
+- `"shopping mall"` → finds `"shopping"` icon
+- `"general hospital"` → finds `"hospital"` icon
+- `"elementary school"` → finds `"school"` icon
+- `"office building"` → finds `"building"` icon
+- `"private plane"` → finds `"plane"` icon
+
 ### Fallback Icons
 
 When an icon name isn't found, you can provide a fallback:

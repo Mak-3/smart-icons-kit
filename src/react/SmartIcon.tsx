@@ -6,6 +6,7 @@ export type SmartIconProps = {
   name: string;
   family?: string;
   prefixMatch?: boolean;
+  sentenceMatch?: boolean;
   fallbackIcon?: React.ComponentType<any>;
 } & React.ComponentProps<'svg'>; // Spread all SVG props
 
@@ -13,10 +14,11 @@ export const SmartIcon: React.FC<SmartIconProps> = ({
   name,
   family = "lucide",
   prefixMatch = false,
+  sentenceMatch = false,
   fallbackIcon: FallbackIcon,
   ...svgProps // Spread all other props to the icon component
 }) => {
-  const key = findIconKey(name, family, prefixMatch);
+  const key = findIconKey(name, family, prefixMatch, sentenceMatch);
   
   // If no icon found and no fallback, return null
   if (!key && !FallbackIcon) return null;
