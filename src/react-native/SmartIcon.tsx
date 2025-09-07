@@ -1,6 +1,6 @@
 import React from "react";
-import { findIconKey } from "../shared/utils";
-import { getRegistry } from "../shared/registry";
+import { findIconKey } from "../shared/utils.js";
+import { getRegistry } from "../shared/registry.js";
 
 export type SmartIconProps = {
   name: string;

@@ -1,5 +1,5 @@
 // registry.ts
-import type { IconMap } from "./types";
+import type { IconMap } from "./types.js";
 
 let registry: Record<string, IconMap> | null = null;
 let synonymRegistry: Record<string, Record<string, string>> | null = null;

@@ -1,0 +1,33 @@
+# Source files
+src/
+tests/
+*.test.*
+*.spec.*
+
+# Development files
+tsconfig*.json
+webpack.config.js
+jest.config.js
+fix-synonyms.js
+
+# Build artifacts
+*.map
+*.log
+
+# Development dependencies
+node_modules/
+package-lock.json
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,4 +1,4 @@
-import { getSynonymRegistry } from "./registry";
+import { getSynonymRegistry } from "./registry.js";
 
 export function findIconKey(name: string, family: string, prefixMatch: boolean = false): string | null {
   const lower = name.toLowerCase();

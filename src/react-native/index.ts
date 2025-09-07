@@ -1,10 +1,10 @@
-import { initializeRegistry } from "../shared/registry";
-import { lucideMap } from "./iconMap";
+import { initializeRegistry } from "../shared/registry.js";
+import { lucideMap } from "./iconMap.js";
 
 // Initialize the registry with React Native icons
 initializeRegistry(lucideMap);
 
-export { SmartIcon } from "./SmartIcon";
-export { registerIconFamily, getRegistry, resetRegistry } from "../shared/registry";
-export type { IconEntry, IconMap, IconFamilyRegistry } from "../shared/types";
-export { lucideMap } from "./iconMap";
+export { SmartIcon } from "./SmartIcon.js";
+export { registerIconFamily, getRegistry, resetRegistry } from "../shared/registry.js";
+export type { IconEntry, IconMap, IconFamilyRegistry } from "../shared/types.js";
+export { lucideMap } from "./iconMap.js";
