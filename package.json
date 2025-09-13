@@ -1,5 +1,5 @@
 {
-  "name": "smart-icons",
+  "name": "smart-icons-kit",
   "version": "1.0.0",
   "description": "A smart icon component that works with both React web and React Native",
   "type": "module",
@@ -64,7 +64,7 @@
     "react-native",
     "icons",
     "lucide",
-    "smart-icons"
+    "smart-icons-kit"
   ],
   "author": "",
   "license": "MIT"
