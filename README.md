@@ -47,7 +47,7 @@ function App() {
       {/* Fuzzy matching with prefixMatch prop */}
       <SmartIcon name="hom" prefixMatch size={24} color="green" /> {/* matches "home" */}
       
-      {/* Spread props - all SVG attributes work */}
+      {/* Spread props - all SVG attributes and events work */}
       <SmartIcon 
         name="search" 
         width={32} 
@@ -57,26 +57,6 @@ function App() {
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      
-      {/* Event handlers */}
-      <SmartIcon 
-        name="heart" 
-        size={20} 
-        color="pink"
-        onClick={() => console.log('Heart clicked!')}
-        onMouseEnter={() => console.log('Mouse entered')}
-        style={{ cursor: 'pointer' }}
-      />
-      
-      {/* Accessibility props */}
-      <SmartIcon 
-        name="user" 
-        size={28} 
-        color="green"
-        role="img"
-        aria-label="User profile icon"
-        tabIndex={0}
       />
       
       {/* Fallback icon when name not found */}
@@ -121,24 +101,6 @@ function App() {
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      
-      {/* Touchable with event handlers */}
-      <TouchableOpacity onPress={() => console.log('Heart pressed!')}>
-        <SmartIcon 
-          name="heart" 
-          size={20} 
-          color="pink"
-        />
-      </TouchableOpacity>
-      
-      {/* Accessibility props */}
-      <SmartIcon 
-        name="user" 
-        size={28} 
-        color="green"
-        accessibilityLabel="User profile icon"
-        accessible={true}
       />
       
       {/* Fallback icon when name not found */}
@@ -246,7 +208,10 @@ function App() {
 #### **18. Shapes & Symbols (6 icons)**
 - hexagon, octagon, diamond, cross, bookmarkPlus, bookmarkMinus
 
-#### **19. Miscellaneous (13 icons)**
+#### **19. Transport and vehicle (5 icons)**
+- Car, Plane, Train, Ship, Bus,
+
+#### **20. Miscellaneous (13 icons)**
 - coffee, gamepad2, palette, brush, pen, pencil, eraser, ruler
 - gift, cake, pizza, apple, carrot, leaf, trees, flower, bug, fish, bird, cat, dog
 
@@ -291,31 +256,6 @@ home: {
 - `family?: string` - Icon family (default: "lucide")
 - `prefixMatch?: boolean` - Enable fuzzy matching for 3+ character inputs (default: false)
 - `fallbackIcon?: React.ComponentType<any>` - Fallback icon when name not found
-
-#### Spread Props
-All standard SVG/icon props are automatically supported:
-- `size?: number` - Icon size
-- `color?: string` - Icon color
-- `width?: number` - Icon width
-- `height?: number` - Icon height
-- `fill?: string` - Fill color
-- `stroke?: string` - Stroke color
-- `strokeWidth?: number` - Stroke width
-- `strokeLinecap?: string` - Stroke line cap
-- `strokeLinejoin?: string` - Stroke line join
-- `className?: string` - CSS class (React web)
-- `style?: React.CSSProperties` - Inline styles (React web)
-- `onClick?: () => void` - Click handler (React web)
-- `onMouseEnter?: () => void` - Mouse enter handler (React web)
-- `role?: string` - ARIA role (React web)
-- `aria-label?: string` - ARIA label (React web)
-- `tabIndex?: number` - Tab index (React web)
-- `accessibilityLabel?: string` - Accessibility label (React Native)
-- `accessible?: boolean` - Accessibility flag (React Native)
-- `testID?: string` - Test ID (React Native)
-- And many more...
-
----
 
 ## Advanced Usage
 
@@ -381,40 +321,6 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 ### Spread Props Benefits
 
-#### What We Improved
-
-**Before (Fixed Props):**
-```tsx
-// Limited to predefined props
-<SmartIcon 
-  name="home" 
-  size={24} 
-  color="blue" 
-  className="my-icon"
-  style={{ margin: '10px' }}
-/>
-// ❌ Can't use: strokeWidth, strokeLinecap, onClick, aria-label, etc.
-```
-
-**After (Spread Props):**
-```tsx
-// All SVG/icon props work automatically
-<SmartIcon 
-  name="home" 
-  size={24} 
-  color="blue" 
-  className="my-icon"
-  style={{ margin: '10px' }}
-  strokeWidth={2}
-  strokeLinecap="round"
-  onClick={() => console.log('clicked')}
-  aria-label="Home icon"
-  tabIndex={0}
-  data-testid="home-icon"
-/>
-// ✅ Everything works!
-```
-
 #### Key Benefits
 
 1. **Future-Proof**: No need to update component when new SVG props are added
@@ -434,19 +340,6 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
   onClick={toggleLike}
   onMouseEnter={() => setHovered(true)}
   style={{ cursor: 'pointer', transform: hovered ? 'scale(1.1)' : 'scale(1)' }}
-/>
-```
-
-**Accessible Icons:**
-```tsx
-<SmartIcon 
-  name="search" 
-  size={24} 
-  color="blue"
-  role="button"
-  aria-label="Search"
-  tabIndex={0}
-  onKeyDown={handleKeyDown}
 />
 ```
 

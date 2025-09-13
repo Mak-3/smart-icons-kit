@@ -55,9 +55,14 @@ import {
   // Shapes & Symbols
   Hexagon, Octagon, Diamond, Cross, BookmarkPlus, BookmarkMinus,
   
+  // Transport and vehicle
+  Car, Plane, Train, Ship, Bus,
+
   // Miscellaneous
-  Coffee, Gamepad2, Palette, Brush, Pen, Pencil, Eraser, Ruler,
-  Gift, Cake, Pizza, Apple, Carrot, Leaf, Trees, Flower, Bug, Fish, Bird, Cat, Dog
+  Coffee, CupSoda, Utensils, PartyPopper,Gamepad2, Palette, Brush, Pen, Pencil, Eraser, Ruler,
+  Gift, Cake, Pizza, Apple, Carrot, Leaf, Trees, Flower, Bug, Fish, Bird, Cat, Dog,
+  Bed,
+
 } from "lucide-react";
 import type { IconMap } from "../shared/types";
 
@@ -67,16 +72,20 @@ export const lucideMap: IconMap = {
     synonyms: ["home", "house", "dwelling", "main", "dashboard"],
     component: Home,
   },
+  bed: {
+    synonyms: ["hotel", "stay", "room", "sleep", "rest", "accommodation"],
+    component: Bed,
+  },
   search: {
-    synonyms: ["search", "find", "magnify", "lookup", "seek", "query"],
+    synonyms: ["search", "find", "lookup", "seek", "query"],
     component: Search,
   },
   menu: {
-    synonyms: ["menu", "hamburger", "nav", "navigation", "bars"],
+    synonyms: ["menu", "hamburger", "bars"],
     component: Menu,
   },
   settings: {
-    synonyms: ["settings", "config", "preferences", "options", "gear", "cog"],
+    synonyms: ["settings", "config", "preferences", "gear"],
     component: Settings,
   },
   user: {
@@ -88,15 +97,15 @@ export const lucideMap: IconMap = {
     component: Users,
   },
   bell: {
-    synonyms: ["bell", "notification", "alert", "ring", "chime", "notify"],
+    synonyms: ["bell", "notification", "chime", "notify"],
     component: Bell,
   },
   bellOff: {
-    synonyms: ["bell-off", "mute", "silent", "disable", "quiet", "no-notification"],
+    synonyms: ["bell-off", "mute", "silent", "quiet", "no-notification"],
     component: BellOff,
   },
   eye: {
-    synonyms: ["eye", "view", "see", "watch", "look", "visible"],
+    synonyms: ["eye", "view", "see", "look", "visible"],
     component: Eye,
   },
   eyeOff: {
@@ -106,11 +115,11 @@ export const lucideMap: IconMap = {
   
   // Arrows & Navigation
   chevronDown: {
-    synonyms: ["chevron-down", "dropdown", "expand", "open"],
+    synonyms: ["chevron-down", "dropdown", "expand"],
     component: ChevronDown,
   },
   chevronUp: {
-    synonyms: ["chevron-up", "collapse", "close", "up"],
+    synonyms: ["chevron-up", "collapse", "up"],
     component: ChevronUp,
   },
   chevronLeft: {
@@ -146,11 +155,11 @@ export const lucideMap: IconMap = {
     component: ArrowUp,
   },
   arrowLeft: {
-    synonyms: ["arrow-left", "left", "back", "previous", "return"],
+    synonyms: ["arrow-left", "left", "return"],
     component: ArrowLeft,
   },
   arrowRight: {
-    synonyms: ["arrow-right", "right", "forward", "next", "continue"],
+    synonyms: ["arrow-right", "right", "continue"],
     component: ArrowRight,
   },
   arrowDownLeft: {
@@ -172,11 +181,11 @@ export const lucideMap: IconMap = {
   
   // Basic Actions
   plus: {
-    synonyms: ["plus", "add", "create", "new", "insert", "increase"],
+    synonyms: ["plus", "add", "create", "new", "insert"],
     component: Plus,
   },
   minus: {
-    synonyms: ["minus", "remove", "subtract", "delete", "decrease", "reduce"],
+    synonyms: ["minus", "remove", "subtract", "reduce"],
     component: Minus,
   },
   x: {
@@ -192,7 +201,7 @@ export const lucideMap: IconMap = {
     component: Circle,
   },
   square: {
-    synonyms: ["square", "box", "rectangle", "block"],
+    synonyms: ["square", "rectangle"],
     component: Square,
   },
   triangle: {
@@ -200,15 +209,15 @@ export const lucideMap: IconMap = {
     component: Triangle,
   },
   star: {
-    synonyms: ["star", "rating", "favorite", "bookmark", "highlight", "important"],
+    synonyms: ["star", "rating", "favorite", "highlight", "important"],
     component: Star,
   },
   heart: {
-    synonyms: ["heart", "love", "like", "favorite", "emotion", "affection"],
+    synonyms: ["heart", "love", "like", "emotion", "affection"],
     component: Heart,
   },
   bookmark: {
-    synonyms: ["bookmark", "save", "mark", "tag", "favorite", "remember"],
+    synonyms: ["bookmark", "save", "remember"],
     component: Bookmark,
   },
   
@@ -226,11 +235,11 @@ export const lucideMap: IconMap = {
     component: Edit3,
   },
   save: {
-    synonyms: ["save", "store", "keep", "preserve", "retain", "download"],
+    synonyms: ["save", "store", "keep", "preserve", "retain"],
     component: Save,
   },
   copy: {
-    synonyms: ["copy", "duplicate", "clone", "replicate", "duplicate"],
+    synonyms: ["copy", "duplicate", "clone", "replicate"],
     component: Copy,
   },
   scissors: {
@@ -238,7 +247,7 @@ export const lucideMap: IconMap = {
     component: Scissors,
   },
   trash: {
-    synonyms: ["trash", "delete", "remove", "bin", "garbage", "dispose"],
+    synonyms: ["trash", "bin", "garbage", "dispose"],
     component: Trash,
   },
   trash2: {
@@ -246,31 +255,31 @@ export const lucideMap: IconMap = {
     component: Trash2,
   },
   delete: {
-    synonyms: ["delete", "remove", "trash", "bin", "garbage", "dispose"],
+    synonyms: ["delete", "remove"],
     component: Delete,
   },
   download: {
-    synonyms: ["download", "save", "get", "fetch", "retrieve", "pull"],
+    synonyms: ["download", "get", "fetch", "retrieve", "pull"],
     component: Download,
   },
   upload: {
-    synonyms: ["upload", "send", "post", "share", "submit", "push"],
+    synonyms: ["upload", "post", "submit", "push"],
     component: Upload,
   },
   share: {
-    synonyms: ["share", "send", "distribute", "spread", "broadcast"],
+    synonyms: ["share", "distribute", "spread", "broadcast"],
     component: Share,
   },
   share2: {
-    synonyms: ["share-2", "share-alt", "send-alt", "distribute-alt"],
+    synonyms: ["share-2", "share-alt", "distribute-alt"],
     component: Share2,
   },
   link: {
-    synonyms: ["link", "url", "connect", "join", "attach", "reference"],
+    synonyms: ["link", "url", "join", "reference"],
     component: Link,
   },
   link2: {
-    synonyms: ["link-2", "link-alt", "connect-alt", "join-alt"],
+    synonyms: ["link-2", "link-alt", "join-alt"],
     component: Link2,
   },
   externalLink: {
@@ -278,11 +287,11 @@ export const lucideMap: IconMap = {
     component: ExternalLink,
   },
   refreshCw: {
-    synonyms: ["refresh-cw", "reload", "refresh", "update", "renew"],
+    synonyms: ["refresh-cw", "reload", "refresh", "renew"],
     component: RefreshCw,
   },
   refreshCcw: {
-    synonyms: ["refresh-ccw", "reload-alt", "refresh-alt", "update-alt"],
+    synonyms: ["refresh-ccw", "reload-alt", "refresh-alt"],
     component: RefreshCcw,
   },
   
@@ -312,7 +321,7 @@ export const lucideMap: IconMap = {
     component: Rewind,
   },
   volume: {
-    synonyms: ["volume", "sound", "audio", "speaker", "loudness"],
+    synonyms: ["volume", "loudness"],
     component: Volume,
   },
   volume1: {
@@ -330,11 +339,11 @@ export const lucideMap: IconMap = {
   
   // View Controls
   maximize: {
-    synonyms: ["maximize", "expand", "fullscreen", "enlarge", "zoom-in"],
+    synonyms: ["maximize", "expand", "fullscreen", "enlarge"],
     component: Maximize,
   },
   minimize: {
-    synonyms: ["minimize", "collapse", "shrink", "reduce", "zoom-out"],
+    synonyms: ["minimize", "collapse", "shrink"],
     component: Minimize,
   },
   maximize2: {
@@ -364,7 +373,7 @@ export const lucideMap: IconMap = {
   
   // Communication
   mail: {
-    synonyms: ["mail", "email", "message", "envelope", "letter", "inbox"],
+    synonyms: ["mail", "email", "message", "envelope", "letter"],
     component: Mail,
   },
   messageCircle: {
@@ -376,11 +385,11 @@ export const lucideMap: IconMap = {
     component: MessageSquare,
   },
   phone: {
-    synonyms: ["phone", "call", "telephone", "mobile", "contact", "dial"],
+    synonyms: ["phone", "call", "telephone", "contact", "dial"],
     component: Phone,
   },
   phoneCall: {
-    synonyms: ["phone-call", "call", "ring", "dial", "contact"],
+    synonyms: ["phone-call", "ring"],
     component: PhoneCall,
   },
   phoneIncoming: {
@@ -404,23 +413,23 @@ export const lucideMap: IconMap = {
     component: Send,
   },
   mic: {
-    synonyms: ["mic", "microphone", "record", "voice", "audio"],
+    synonyms: ["mic", "microphone", "record", "voice"],
     component: Mic,
   },
   micOff: {
-    synonyms: ["mic-off", "mute", "silent", "no-mic", "disable-mic"],
+    synonyms: ["mic-off", "no-mic", "disable-mic"],
     component: MicOff,
   },
   headphones: {
-    synonyms: ["headphones", "headset", "earphones", "audio", "sound"],
+    synonyms: ["headphones", "headset", "earphones"],
     component: Headphones,
   },
   speaker: {
-    synonyms: ["speaker", "sound", "audio", "volume", "loudspeaker"],
+    synonyms: ["speaker", "loudspeaker"],
     component: Speaker,
   },
   video: {
-    synonyms: ["video", "camera", "record", "film", "movie"],
+    synonyms: ["video", "record", "film", "movie"],
     component: Video,
   },
   videoOff: {
@@ -442,7 +451,7 @@ export const lucideMap: IconMap = {
     component: File,
   },
   fileText: {
-    synonyms: ["file-text", "document", "text", "content", "article"],
+    synonyms: ["file-text", "text", "content", "article"],
     component: FileText,
   },
   filePlus: {
@@ -454,7 +463,7 @@ export const lucideMap: IconMap = {
     component: FileMinus,
   },
   folder: {
-    synonyms: ["folder", "directory", "collection", "group", "archive"],
+    synonyms: ["folder", "directory", "collection"],
     component: Folder,
   },
   folderPlus: {
@@ -474,19 +483,19 @@ export const lucideMap: IconMap = {
     component: Image,
   },
   film: {
-    synonyms: ["film", "movie", "video", "cinema", "media"],
+    synonyms: ["film", "movie", "cinema"],
     component: Film,
   },
   music: {
-    synonyms: ["music", "audio", "song", "track", "melody"],
+    synonyms: ["music", "song", "track", "melody"],
     component: Music,
   },
   package: {
-    synonyms: ["package", "box", "container", "bundle", "parcel"],
+    synonyms: ["package", "box", "bundle", "parcel"],
     component: Package,
   },
   archive: {
-    synonyms: ["archive", "storage", "backup", "compress", "zip"],
+    synonyms: ["archive", "backup", "compress", "zip"],
     component: Archive,
   },
   inbox: {
@@ -494,37 +503,37 @@ export const lucideMap: IconMap = {
     component: Inbox,
   },
   clipboard: {
-    synonyms: ["clipboard", "copy", "paste", "clip", "board"],
+    synonyms: ["clipboard", "paste", "board"],
     component: Clipboard,
   },
   paperclip: {
-    synonyms: ["paperclip", "attach", "attachment", "link", "connect"],
+    synonyms: ["paperclip", "attach", "attachment"],
     component: Paperclip,
   },
   
   // Technology & Devices
   smartphone: {
-    synonyms: ["smartphone", "phone", "mobile", "cell", "device"],
+    synonyms: ["smartphone", "cell"],
     component: Smartphone,
   },
   tablet: {
-    synonyms: ["tablet", "ipad", "device", "screen", "portable"],
+    synonyms: ["tablet", "ipad", "portable"],
     component: Tablet,
   },
   monitor: {
-    synonyms: ["monitor", "screen", "display", "desktop", "computer"],
+    synonyms: ["monitor", "screen", "desktop"],
     component: Monitor,
   },
   laptop: {
-    synonyms: ["laptop", "computer", "notebook", "pc", "machine"],
+    synonyms: ["laptop", "notebook", "pc"],
     component: Laptop,
   },
   tv: {
-    synonyms: ["tv", "television", "screen", "display", "media"],
+    synonyms: ["tv", "television", "display"],
     component: Tv,
   },
   watch: {
-    synonyms: ["watch", "time", "clock", "timer", "wristwatch"],
+    synonyms: ["watch", "time", "hour", "minute", "wristwatch"],
     component: Watch,
   },
   hardDrive: {
@@ -532,19 +541,19 @@ export const lucideMap: IconMap = {
     component: HardDrive,
   },
   server: {
-    synonyms: ["server", "host", "computer", "machine", "system"],
+    synonyms: ["server", "host", "system"],
     component: Server,
   },
   database: {
-    synonyms: ["database", "data", "storage", "db", "information"],
+    synonyms: ["database", "data", "db"],
     component: Database,
   },
   cpu: {
-    synonyms: ["cpu", "processor", "chip", "computer", "hardware"],
+    synonyms: ["cpu", "processor", "chip", "hardware"],
     component: Cpu,
   },
   wifi: {
-    synonyms: ["wifi", "wireless", "internet", "connection", "network"],
+    synonyms: ["wifi", "wireless", "internet", "connection"],
     component: Wifi,
   },
   wifiOff: {
@@ -552,11 +561,11 @@ export const lucideMap: IconMap = {
     component: WifiOff,
   },
   bluetooth: {
-    synonyms: ["bluetooth", "wireless", "connect", "pair", "sync"],
+    synonyms: ["bluetooth", "pair", "sync"],
     component: Bluetooth,
   },
   battery: {
-    synonyms: ["battery", "power", "energy", "charge", "life"],
+    synonyms: ["battery", "charge", "life"],
     component: Battery,
   },
   batteryCharging: {
@@ -564,49 +573,49 @@ export const lucideMap: IconMap = {
     component: BatteryCharging,
   },
   power: {
-    synonyms: ["power", "on", "off", "switch", "toggle", "energy"],
+    synonyms: ["power", "on", "off", "switch", "toggle"],
     component: Power,
   },
   zap: {
-    synonyms: ["zap", "lightning", "electric", "power", "energy"],
+    synonyms: ["zap", "lightning", "electric"],
     component: Zap,
   },
   zapOff: {
-    synonyms: ["zap-off", "no-power", "off", "disable", "shutdown"],
+    synonyms: ["zap-off", "no-power", "disable", "shutdown"],
     component: ZapOff,
   },
   
   // Social & Brand
   facebook: {
-    synonyms: ["facebook", "fb", "social", "network", "connect"],
+    synonyms: ["facebook", "fb"],
     component: Facebook,
   },
   twitter: {
-    synonyms: ["twitter", "tweet", "social", "network", "connect"],
+    synonyms: ["twitter", "tweet"],
     component: Twitter,
   },
   instagram: {
-    synonyms: ["instagram", "ig", "social", "photo", "network"],
+    synonyms: ["instagram", "ig"],
     component: Instagram,
   },
   linkedin: {
-    synonyms: ["linkedin", "professional", "network", "career", "business"],
+    synonyms: ["linkedin", "professional", "career"],
     component: Linkedin,
   },
   github: {
-    synonyms: ["github", "git", "code", "repository", "developer"],
+    synonyms: ["github", "git"],
     component: Github,
   },
   gitlab: {
-    synonyms: ["gitlab", "git", "code", "repository", "developer"],
+    synonyms: ["gitlab"],
     component: Gitlab,
   },
   youtube: {
-    synonyms: ["youtube", "video", "media", "stream", "watch"],
+    synonyms: ["youtube", "stream", "watch"],
     component: Youtube,
   },
   slack: {
-    synonyms: ["slack", "chat", "team", "communication", "work"],
+    synonyms: ["slack", "team", "communication", "work"],
     component: Slack,
   },
   
@@ -616,39 +625,39 @@ export const lucideMap: IconMap = {
     component: DollarSign,
   },
   creditCard: {
-    synonyms: ["credit-card", "payment", "card", "money", "buy"],
+    synonyms: ["credit-card", "payment", "card", "buy"],
     component: CreditCard,
   },
   shoppingCart: {
-    synonyms: ["shopping-cart", "cart", "buy", "purchase", "shop"],
+    synonyms: ["shopping-cart", "cart", "purchase"],
     component: ShoppingCart,
   },
   shoppingBag: {
-    synonyms: ["shopping-bag", "bag", "buy", "purchase", "shop"],
+    synonyms: ["shopping-bag", "bag"],
     component: ShoppingBag,
   },
   package2: {
-    synonyms: ["package-2", "box", "container", "bundle", "parcel"],
+    synonyms: ["package-2", "box-alt", "container-alt"],
     component: Package2,
   },
   truck: {
-    synonyms: ["truck", "delivery", "shipping", "transport", "vehicle"],
+    synonyms: ["truck", "delivery", "shipping", "transport"],
     component: Truck,
   },
   briefcase: {
-    synonyms: ["briefcase", "work", "business", "job", "career"],
+    synonyms: ["briefcase", "work", "job"],
     component: Briefcase,
   },
   building: {
-    synonyms: ["building", "office", "company", "workplace", "structure"],
+    synonyms: ["building", "office", "company", "workplace"],
     component: Building,
   },
   trendingUp: {
-    synonyms: ["trending-up", "increase", "growth", "rise", "upward"],
+    synonyms: ["trending-up", "growth", "rise", "upward"],
     component: TrendingUp,
   },
   trendingDown: {
-    synonyms: ["trending-down", "decrease", "decline", "fall", "downward"],
+    synonyms: ["trending-down", "decline", "fall", "downward"],
     component: TrendingDown,
   },
   barChart: {
@@ -660,7 +669,7 @@ export const lucideMap: IconMap = {
     component: BarChart2,
   },
   pieChart: {
-    synonyms: ["pie-chart", "chart", "graph", "data", "analytics"],
+    synonyms: ["pie-chart", "chart-alt", "graph-alt", "data-alt"],
     component: PieChart,
   },
   activity: {
@@ -674,61 +683,61 @@ export const lucideMap: IconMap = {
   
   // Time & Calendar
   calendar: {
-    synonyms: ["calendar", "date", "schedule", "event", "time"],
+    synonyms: ["calendar", "date", "schedule", "event"],
     component: Calendar,
   },
   clock: {
-    synonyms: ["clock", "time", "hour", "minute", "schedule"],
+    synonyms: ["clock", "time", "hour", "minute"],
     component: Clock,
   },
   timer: {
-    synonyms: ["timer", "countdown", "stopwatch", "time", "duration"],
+    synonyms: ["timer", "countdown", "stopwatch", "duration"],
     component: Timer,
   },
   sunrise: {
-    synonyms: ["sunrise", "morning", "dawn", "day", "light"],
+    synonyms: ["sunrise", "morning", "dawn", "day"],
     component: Sunrise,
   },
   sunset: {
-    synonyms: ["sunset", "evening", "dusk", "night", "dark"],
+    synonyms: ["sunset", "evening", "dusk", "night"],
     component: Sunset,
   },
   moon: {
-    synonyms: ["moon", "night", "dark", "lunar", "sleep"],
+    synonyms: ["moon", "lunar", "sleep"],
     component: Moon,
   },
   sun: {
-    synonyms: ["sun", "day", "light", "bright", "solar"],
+    synonyms: ["sun", "bright", "solar"],
     component: Sun,
   },
   
   // Weather & Nature
   cloud: {
-    synonyms: ["cloud", "weather", "sky", "overcast", "gray"],
+    synonyms: ["cloud", "overcast", "gray"],
     component: Cloud,
   },
   cloudRain: {
-    synonyms: ["cloud-rain", "rain", "weather", "storm", "wet"],
+    synonyms: ["cloud-rain", "rain", "storm", "wet"],
     component: CloudRain,
   },
   cloudSnow: {
-    synonyms: ["cloud-snow", "snow", "weather", "cold", "winter"],
+    synonyms: ["cloud-snow", "snow", "cold", "winter"],
     component: CloudSnow,
   },
   cloudLightning: {
-    synonyms: ["cloud-lightning", "lightning", "storm", "thunder", "electric"],
+    synonyms: ["cloud-lightning", "lightning", "thunder"],
     component: CloudLightning,
   },
   cloudDrizzle: {
-    synonyms: ["cloud-drizzle", "drizzle", "rain", "weather", "light-rain"],
+    synonyms: ["cloud-drizzle", "drizzle", "light-rain"],
     component: CloudDrizzle,
   },
   cloudOff: {
-    synonyms: ["cloud-off", "no-cloud", "clear", "sunny", "offline"],
+    synonyms: ["cloud-off", "no-cloud", "clear", "sunny"],
     component: CloudOff,
   },
   umbrella: {
-    synonyms: ["umbrella", "rain", "weather", "protection", "cover"],
+    synonyms: ["umbrella", "protection", "cover"],
     component: Umbrella,
   },
   droplet: {
@@ -736,11 +745,11 @@ export const lucideMap: IconMap = {
     component: Droplet,
   },
   wind: {
-    synonyms: ["wind", "air", "breeze", "weather", "movement"],
+    synonyms: ["wind", "air", "breeze"],
     component: Wind,
   },
   thermometer: {
-    synonyms: ["thermometer", "temperature", "heat", "cold", "weather"],
+    synonyms: ["thermometer", "temperature", "heat", "cold"],
     component: Thermometer,
   },
   compass: {
@@ -748,7 +757,7 @@ export const lucideMap: IconMap = {
     component: Compass,
   },
   map: {
-    synonyms: ["map", "location", "place", "geography", "navigation"],
+    synonyms: ["map", "geography"],
     component: Map,
   },
   mapPin: {
@@ -760,11 +769,11 @@ export const lucideMap: IconMap = {
     component: Globe,
   },
   navigation: {
-    synonyms: ["navigation", "nav", "direction", "route", "travel"],
+    synonyms: ["navigation", "nav", "route", "travel"],
     component: Navigation,
   },
   navigation2: {
-    synonyms: ["navigation-2", "nav-alt", "direction-alt", "route-alt"],
+    synonyms: ["navigation-2", "nav-alt", "route-alt"],
     component: Navigation2,
   },
   
@@ -774,7 +783,7 @@ export const lucideMap: IconMap = {
     component: Lock,
   },
   unlock: {
-    synonyms: ["unlock", "open", "access", "free", "release"],
+    synonyms: ["unlock", "open", "free", "release"],
     component: Unlock,
   },
   shield: {
@@ -786,41 +795,41 @@ export const lucideMap: IconMap = {
     component: ShieldOff,
   },
   key: {
-    synonyms: ["key", "access", "password", "secret", "unlock"],
+    synonyms: ["key", "password", "secret"],
     component: Key,
   },
   fingerprint: {
-    synonyms: ["fingerprint", "biometric", "identity", "security", "unique"],
+    synonyms: ["fingerprint", "biometric", "identity", "unique"],
     component: Fingerprint,
   },
   
   // Tools & Utilities
   wrench: {
-    synonyms: ["wrench", "tool", "fix", "repair", "adjust"],
+    synonyms: ["wrench", "fix", "repair", "adjust"],
     component: Wrench,
   },
   hammer: {
-    synonyms: ["hammer", "tool", "build", "construct", "fix"],
+    synonyms: ["hammer", "build", "construct"],
     component: Hammer,
   },
   cog: {
-    synonyms: ["cog", "gear", "settings", "configuration", "mechanical"],
+    synonyms: ["cog", "gear", "configuration", "mechanical"],
     component: Cog,
   },
   sliders: {
-    synonyms: ["sliders", "controls", "adjust", "settings", "options"],
+    synonyms: ["sliders", "controls", "adjust"],
     component: Sliders,
   },
   filter: {
-    synonyms: ["filter", "sort", "search", "refine", "organize"],
+    synonyms: ["filter", "refine", "organize"],
     component: Filter,
   },
   hash: {
-    synonyms: ["hash", "number", "tag", "symbol", "pound"],
+    synonyms: ["hash", "number", "symbol", "pound"],
     component: Hash,
   },
   tag: {
-    synonyms: ["tag", "label", "mark", "category", "keyword"],
+    synonyms: ["tag", "label", "mark", "keyword"],
     component: Tag,
   },
   layers: {
@@ -828,23 +837,23 @@ export const lucideMap: IconMap = {
     component: Layers,
   },
   grid: {
-    synonyms: ["grid", "layout", "table", "matrix", "structure"],
+    synonyms: ["grid", "table", "matrix"],
     component: Grid,
   },
   layout: {
-    synonyms: ["layout", "design", "arrange", "structure", "plan"],
+    synonyms: ["layout", "arrange", "structure", "plan"],
     component: Layout,
   },
   sidebar: {
-    synonyms: ["sidebar", "panel", "menu", "navigation", "side"],
+    synonyms: ["sidebar", "panel", "side"],
     component: Sidebar,
   },
   moreHorizontal: {
-    synonyms: ["more-horizontal", "dots", "menu", "options", "actions"],
+    synonyms: ["more-horizontal", "dots", "options"],
     component: MoreHorizontal,
   },
   moreVertical: {
-    synonyms: ["more-vertical", "dots", "menu", "options", "actions"],
+    synonyms: ["more-vertical", "dots", "options"],
     component: MoreVertical,
   },
   
@@ -854,15 +863,15 @@ export const lucideMap: IconMap = {
     component: Type,
   },
   bold: {
-    synonyms: ["bold", "strong", "thick", "emphasis", "heavy"],
+    synonyms: ["bold", "strong", "thick", "heavy"],
     component: Bold,
   },
   italic: {
-    synonyms: ["italic", "slanted", "emphasis", "style", "tilted"],
+    synonyms: ["italic", "slanted", "tilted"],
     component: Italic,
   },
   underline: {
-    synonyms: ["underline", "line", "emphasis", "mark", "highlight"],
+    synonyms: ["underline", "line", "highlight"],
     component: Underline,
   },
   alignLeft: {
@@ -882,7 +891,7 @@ export const lucideMap: IconMap = {
     component: AlignJustify,
   },
   list: {
-    synonyms: ["list", "items", "bullets", "points", "menu"],
+    synonyms: ["list", "items", "bullets", "points"],
     component: List,
   },
   listOrdered: {
@@ -890,7 +899,7 @@ export const lucideMap: IconMap = {
     component: ListOrdered,
   },
   quote: {
-    synonyms: ["quote", "quotation", "speech", "text", "reference"],
+    synonyms: ["quote", "quotation", "speech", "reference"],
     component: Quote,
   },
   code: {
@@ -898,11 +907,11 @@ export const lucideMap: IconMap = {
     component: Code,
   },
   terminal: {
-    synonyms: ["terminal", "command", "console", "cli", "shell"],
+    synonyms: ["terminal", "console", "cli", "shell"],
     component: Terminal,
   },
   command: {
-    synonyms: ["command", "key", "shortcut", "control", "action"],
+    synonyms: ["command", "shortcut", "control", "action"],
     component: Command,
   },
   
@@ -916,19 +925,19 @@ export const lucideMap: IconMap = {
     component: XCircle,
   },
   alertCircle: {
-    synonyms: ["alert-circle", "warning", "caution", "notice", "info"],
+    synonyms: ["alert-circle", "warning", "caution", "notice"],
     component: AlertCircle,
   },
   alertTriangle: {
-    synonyms: ["alert-triangle", "warning", "danger", "caution", "alert"],
+    synonyms: ["alert-triangle", "danger", "alert"],
     component: AlertTriangle,
   },
   alertOctagon: {
-    synonyms: ["alert-octagon", "stop", "danger", "halt", "critical"],
+    synonyms: ["alert-octagon", "stop", "halt", "critical"],
     component: AlertOctagon,
   },
   info: {
-    synonyms: ["info", "information", "help", "details", "about"],
+    synonyms: ["info", "information", "details", "about"],
     component: Info,
   },
   helpCircle: {
@@ -948,11 +957,11 @@ export const lucideMap: IconMap = {
     component: Award,
   },
   trophy: {
-    synonyms: ["trophy", "winner", "champion", "victory", "success"],
+    synonyms: ["trophy", "winner", "champion", "victory"],
     component: Trophy,
   },
   medal: {
-    synonyms: ["medal", "award", "prize", "achievement", "honor"],
+    synonyms: ["medal", "award-alt", "prize-alt", "achievement-alt"],
     component: Medal,
   },
   flag: {
@@ -962,19 +971,19 @@ export const lucideMap: IconMap = {
   
   // Shapes & Symbols
   hexagon: {
-    synonyms: ["hexagon", "shape", "six-sided", "geometric"],
+    synonyms: ["hexagon", "six-sided"],
     component: Hexagon,
   },
   octagon: {
-    synonyms: ["octagon", "shape", "eight-sided", "geometric"],
+    synonyms: ["octagon", "eight-sided"],
     component: Octagon,
   },
   diamond: {
-    synonyms: ["diamond", "shape", "gem", "precious", "valuable"],
+    synonyms: ["diamond", "gem", "precious", "valuable"],
     component: Diamond,
   },
   cross: {
-    synonyms: ["cross", "plus", "add", "medical", "religion"],
+    synonyms: ["cross", "medical", "religion"],
     component: Cross,
   },
   bookmarkPlus: {
@@ -986,89 +995,123 @@ export const lucideMap: IconMap = {
     component: BookmarkMinus,
   },
   
+  // Transport and vehicle
+  car: {
+    synonyms: ["car", "vehicle", "auto", "automobile", "ride", "transport", "cab"],
+    component: Car,
+  },
+  flight: {
+    synonyms: ["flight", "plane", "airplane", "aircraft", "jet", "aeroplane", "travel"],
+    component: Plane,
+  },
+  bus: {
+    synonyms: ["bus", "coach", "shuttle", "minibus", "public transport"],
+    component: Bus,
+  },
+  ship: {
+    synonyms: ["ship", "boat", "cruise", "ferry", "yacht", "sail"],
+    component: Ship,
+  },
+  train: {
+    synonyms: ["train", "rail", "metro", "subway", "locomotive"],
+    component: Train,
+  },
+
   // Miscellaneous
   coffee: {
     synonyms: ["coffee", "drink", "caffeine", "morning", "hot"],
     component: Coffee,
   },
+  utensils: {
+    synonyms: ["food", "meal", "eat", "dining", "fork", "spoon", "restaurant", "cutlery"],
+    component: Utensils,
+  },
+  cupSoda: {
+    synonyms: ["beverage", "soda", "juice", "tea", "cup"],
+    component: CupSoda,
+  },
   gamepad2: {
-    synonyms: ["gamepad-2", "controller", "gaming", "play", "game"],
+    synonyms: ["gamepad-2", "controller", "gaming"],
     component: Gamepad2,
   },
   palette: {
-    synonyms: ["palette", "colors", "paint", "art", "design"],
+    synonyms: ["palette", "colors", "paint"],
     component: Palette,
   },
   brush: {
-    synonyms: ["brush", "paint", "art", "draw", "color"],
+    synonyms: ["brush", "paint", "draw"],
     component: Brush,
   },
   pen: {
-    synonyms: ["pen", "write", "draw", "ink", "tool"],
+    synonyms: ["pen", "write", "draw", "ink"],
     component: Pen,
   },
   pencil: {
-    synonyms: ["pencil", "write", "draw", "sketch", "tool"],
+    synonyms: ["pencil", "write", "draw", "sketch"],
     component: Pencil,
   },
   eraser: {
-    synonyms: ["eraser", "remove", "delete", "clean", "tool"],
+    synonyms: ["eraser", "remove", "delete", "clean"],
     component: Eraser,
   },
   ruler: {
-    synonyms: ["ruler", "measure", "length", "distance", "tool"],
+    synonyms: ["ruler", "measure", "length", "distance"],
     component: Ruler,
   },
   gift: {
-    synonyms: ["gift", "present", "surprise", "give", "celebration"],
+    synonyms: ["gift", "present", "surprise", "give"],
     component: Gift,
   },
   cake: {
-    synonyms: ["cake", "dessert", "sweet", "birthday", "celebration"],
+    synonyms: ["cake", "dessert", "sweet", "birthday", "anniversary"],
     component: Cake,
   },
+  party: {
+    synonyms: ["party", "celebration", "event", "festival", "gathering"],
+    component: PartyPopper,
+  },
   pizza: {
-    synonyms: ["pizza", "food", "meal", "italian", "dinner"],
+    synonyms: ["pizza", "italian", "dinner"],
     component: Pizza,
   },
   apple: {
-    synonyms: ["apple", "fruit", "food", "healthy", "red"],
+    synonyms: ["apple", "fruit", "red"],
     component: Apple,
   },
   carrot: {
-    synonyms: ["carrot", "vegetable", "food", "healthy", "orange"],
+    synonyms: ["carrot", "vegetable", "orange"],
     component: Carrot,
   },
   leaf: {
-    synonyms: ["leaf", "nature", "green", "plant", "organic"],
+    synonyms: ["leaf", "green", "organic"],
     component: Leaf,
   },
   trees: {
-    synonyms: ["trees", "tree", "nature", "forest", "plant", "green"],
+    synonyms: ["trees", "tree", "forest"],
     component: Trees,
   },
   flower: {
-    synonyms: ["flower", "nature", "beautiful", "plant", "bloom"],
+    synonyms: ["flower", "beautiful", "bloom"],
     component: Flower,
   },
   bug: {
-    synonyms: ["bug", "insect", "error", "problem", "issue"],
+    synonyms: ["bug", "insect", "problem", "issue"],
     component: Bug,
   },
   fish: {
-    synonyms: ["fish", "animal", "water", "sea", "ocean"],
+    synonyms: ["fish", "water", "sea", "ocean"],
     component: Fish,
   },
   bird: {
-    synonyms: ["bird", "animal", "fly", "sky", "nature"],
+    synonyms: ["bird", "fly", "sky"],
     component: Bird,
   },
   cat: {
-    synonyms: ["cat", "animal", "pet", "feline", "cute"],
+    synonyms: ["cat", "feline", "cute"],
     component: Cat,
   },
   dog: {
-    synonyms: ["dog", "animal", "pet", "canine", "loyal"],
+    synonyms: ["dog", "canine", "loyal"],
     component: Dog,
   }
 };

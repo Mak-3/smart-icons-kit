@@ -1,4 +1,3 @@
-// registry.ts
 import type { IconMap } from "./types.js";
 
 let registry: Record<string, IconMap> | null = null;

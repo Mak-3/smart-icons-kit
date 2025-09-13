@@ -1,7 +1,6 @@
 import { initializeRegistry } from "../shared/registry.js";
 import { lucideMap } from "./iconMap.js";
 
-// Initialize the registry with React Native icons
 initializeRegistry(lucideMap);
 
 export { SmartIcon } from "./SmartIcon.js";

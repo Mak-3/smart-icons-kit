@@ -20,48 +20,32 @@ export function findIconKey(name: string, family: string, prefixMatch: boolean =
       // Direct word lookup
       if (synonymMap[word]) return synonymMap[word];
       
-      // If prefix matching is also enabled, try fuzzy matching on the word
-      if (prefixMatch && word.length >= 3) {
-        const synonyms = Object.keys(synonymMap);
-        
-        // 1. Exact prefix match - find synonyms that start with the word
-        const exactPrefixMatch = synonyms.find(synonym => synonym.startsWith(word));
-        if (exactPrefixMatch) return synonymMap[exactPrefixMatch];
-        
-        // 2. Contains match - find synonyms that contain the word (but not at start)
-        const containsMatch = synonyms.find(synonym => 
-          synonym.includes(word) && !synonym.startsWith(word)
-        );
-        if (containsMatch) return synonymMap[containsMatch];
-        
-        // 3. Reverse prefix match - find synonyms where word is a prefix of the synonym
-        const reversePrefixMatch = synonyms.find(synonym => word.startsWith(synonym));
-        if (reversePrefixMatch) return synonymMap[reversePrefixMatch];
+      // If prefix matching is also enabled, try strict prefix matching on the word
+      if (prefixMatch && word.length > 0) {
+        const result = findStrictPrefixMatch(word, synonymMap);
+        if (result) return result;
       }
     }
     
-    // If no word matched, return null
     return null;
   }
   
-  // If prefix matching is enabled and input is 3+ chars, try fuzzy matching
-  if (prefixMatch && lower.length >= 3) {
-    const synonyms = Object.keys(synonymMap);
-    
-    // 1. Exact prefix match - find synonyms that start with the input
-    const exactPrefixMatch = synonyms.find(synonym => synonym.startsWith(lower));
-    if (exactPrefixMatch) return synonymMap[exactPrefixMatch];
-    
-    // 2. Contains match - find synonyms that contain the input (but not at start)
-    const containsMatch = synonyms.find(synonym => 
-      synonym.includes(lower) && !synonym.startsWith(lower)
-    );
-    if (containsMatch) return synonymMap[containsMatch];
-    
-    // 3. Reverse prefix match - find synonyms where input is a prefix of the synonym
-    const reversePrefixMatch = synonyms.find(synonym => lower.startsWith(synonym));
-    if (reversePrefixMatch) return synonymMap[reversePrefixMatch];
+  // If prefix matching is enabled and input is not empty, try strict prefix matching
+  if (prefixMatch && lower.length > 0) {
+    return findStrictPrefixMatch(lower, synonymMap);
   }
+  
+  return null;
+}
+
+function findStrictPrefixMatch(input: string, synonymMap: Record<string, string>): string | null {
+  const synonyms = Object.keys(synonymMap);
+  
+  const strictPrefixMatch = synonyms.find(synonym => {
+    return synonym.startsWith(input) && input.length <= synonym.length && input.length > 0;
+  });
+  
+  if (strictPrefixMatch) return synonymMap[strictPrefixMatch];
   
   return null;
 }
