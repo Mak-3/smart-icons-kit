@@ -8,7 +8,7 @@ export type SmartIconProps = {
   prefixMatch?: boolean;
   sentenceMatch?: boolean;
   fallbackIcon?: React.ComponentType<any>;
-} & React.ComponentProps<'svg'>;
+} & React.ComponentProps<any>;
 
 export const SmartIcon: React.FC<SmartIconProps> = ({
   name,

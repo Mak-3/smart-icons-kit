@@ -31,7 +31,7 @@ export function findIconKey(name: string, family: string, prefixMatch: boolean =
   }
   
   // If prefix matching is enabled and input is not empty, try strict prefix matching
-  if (prefixMatch && lower.length > 0) {
+  if (prefixMatch && lower.length > 2) {
     return findStrictPrefixMatch(lower, synonymMap);
   }
   

@@ -33,16 +33,14 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
-    "lucide-react": "^0.473.0"
+    "lucide-react": "^0.473.0",
+    "lucide-react-native": "^0.542.0"
   },
   "peerDependenciesMeta": {
     "react-native": {
       "optional": true
     },
     "react-native-svg": {
-      "optional": true
-    },
-    "lucide-react-native": {
       "optional": true
     }
   },
