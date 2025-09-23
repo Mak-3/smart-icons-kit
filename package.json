@@ -8,15 +8,27 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./react": {
       "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js",
+      "require": "./dist/react/index.js",
       "default": "./dist/react/index.js"
     },
     "./react-native": {
-      "types": "./dist/react-native/react-native/index.d.ts",
-      "default": "./dist/react-native/react-native/index.js"
+      "types": "./dist/react-native/index.d.ts",
+      "import": "./dist/react-native/index.js",
+      "require": "./dist/react-native/index.js",
+      "default": "./dist/react-native/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "react": ["./dist/react/index.d.ts"],
+      "react-native": ["./dist/react-native/index.d.ts"]
     }
   },
   "files": [
@@ -24,8 +36,8 @@
   ],
   "scripts": {
     "build": "npm run build:react && npm run build:react-native && npm run build:main",
-    "build:react": "tsc -p tsconfig.react.json",
-    "build:react-native": "tsc -p tsconfig.react-native.json",
+    "build:react": "node scripts/build-react.js",
+    "build:react-native": "node scripts/build-react-native.js",
     "build:main": "tsc -p tsconfig.main.json",
     "test": "jest",
     "prepublishOnly": "npm run build"

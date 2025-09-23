@@ -1,4 +1,4 @@
-# Smart Icons - Complete Documentation
+# Smart Icons Kit - Complete Documentation
 
 A smart icon component that works with both React web and React Native, featuring intelligent synonym matching, fuzzy prefix matching, and flexible prop spreading with fallback support.
 
@@ -20,7 +20,7 @@ A smart icon component that works with both React web and React Native, featurin
 ## Installation
 
 ```bash
-npm install smart-icons
+npm install smart-icons-kit
 ```
 
 ---
@@ -30,9 +30,9 @@ npm install smart-icons
 ### For React Web
 
 ```tsx
-import { SmartIcon } from 'smart-icons/react';
+import { SmartIcon } from 'smart-icons-kit/react';
 // or
-import { SmartIcon } from 'smart-icons'; // defaults to React
+import { SmartIcon } from 'smart-icons-kit'; // defaults to React
 import { AlertCircle } from 'lucide-react';
 
 function App() {
@@ -75,7 +75,7 @@ function App() {
 ### For React Native
 
 ```tsx
-import { SmartIcon } from 'smart-icons/react-native';
+import { SmartIcon } from 'smart-icons-kit/react-native';
 import { AlertCircle } from 'lucide-react-native';
 import { TouchableOpacity } from 'react-native';
 
