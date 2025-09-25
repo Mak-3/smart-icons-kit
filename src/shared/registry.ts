@@ -27,7 +27,12 @@ export function getSynonymRegistry() {
 function buildSynonymRegistry() {
   const synonymMap: Record<string, Record<string, string>> = {};
 
-  for (const [family, map] of Object.entries(getRegistry())) {
+  // Use registry directly instead of getRegistry() to avoid circular dependency during initialization
+  if (!registry) {
+    return synonymMap;
+  }
+
+  for (const [family, map] of Object.entries(registry)) {
     synonymMap[family] = {};
     for (const [key, { synonyms }] of Object.entries(map)) {
       for (const word of synonyms) {

@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
-import { execSync } from 'child_process';
-import { copyFileSync, mkdirSync, readdirSync, statSync, rmSync, readFileSync, writeFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+const { execSync } = require('child_process');
+const { copyFileSync, mkdirSync, readdirSync, statSync, rmSync, readFileSync, writeFileSync } = require('fs');
+const { join } = require('path');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 const rootDir = join(__dirname, '..');
 
 const reactNativeDistDir = join(rootDir, 'dist', 'react-native');
@@ -56,10 +53,16 @@ function fixImportPaths(dir) {
       fixImportPaths(filePath);
     } else if (file.endsWith('.js') || file.endsWith('.d.ts')) {
       let content = readFileSync(filePath, 'utf8');
+      // Fix ES module imports
       content = content.replace(/from\s+["']\.\.\/shared\/([^"']+)["']/g, 'from "./$1"');
       content = content.replace(/import\s+["']\.\.\/shared\/([^"']+)["']/g, 'import "./$1"');
       content = content.replace(/from\s+"\.\.\/shared\/([^"]+)"/g, 'from "./$1"');
       content = content.replace(/import\s+"\.\.\/shared\/([^"]+)"/g, 'import "./$1"');
+      
+      // Fix CommonJS require statements
+      content = content.replace(/require\(["']\.\.\/shared\/([^"']+)["']\)/g, 'require("./$1")');
+      content = content.replace(/require\("\.\.\/shared\/([^"]+)"\)/g, 'require("./$1")');
+      
       writeFileSync(filePath, content);
     }
   }

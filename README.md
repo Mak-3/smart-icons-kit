@@ -10,7 +10,6 @@ A smart icon component that works with both React web and React Native, featurin
 4. [Comprehensive Icon Dataset](#comprehensive-icon-dataset)
 5. [API Reference](#api-reference)
 6. [Advanced Usage](#advanced-usage)
-7. [Testing Guide](#testing-guide)
 8. [Performance](#performance)
 9. [Extensibility](#extensibility)
 10. [License](#license)
@@ -19,9 +18,17 @@ A smart icon component that works with both React web and React Native, featurin
 
 ## Installation
 
+### For React Web
 ```bash
 npm install smart-icons-kit
 ```
+
+### For React Native/Expo
+```bash
+npm install smart-icons-kit react-native-svg lucide-react-native buffer
+```
+
+> **Note**: React Native projects require additional dependencies for SVG support and Node.js polyfills.
 
 ---
 
@@ -30,9 +37,7 @@ npm install smart-icons-kit
 ### For React Web
 
 ```tsx
-import { SmartIcon } from 'smart-icons-kit/react';
-// or
-import { SmartIcon } from 'smart-icons-kit'; // defaults to React
+import { SmartIcon } from 'smart-icons-kit';
 import { AlertCircle } from 'lucide-react';
 
 function App() {
@@ -74,10 +79,26 @@ function App() {
 
 ### For React Native
 
+#### Installation
+```bash
+npm install smart-icons-kit react-native-svg lucide-react-native buffer
+```
+
+#### Setup
+For React Native/Expo projects, add this to your main App.js/App.tsx **before** other imports:
+
 ```tsx
-import { SmartIcon } from 'smart-icons-kit/react-native';
+import { Buffer } from 'buffer';
+if (typeof global.Buffer === 'undefined') {
+  global.Buffer = Buffer;
+}
+```
+
+#### Usage
+```tsx
+import { SmartIcon } from 'smart-icons-kit';
 import { AlertCircle } from 'lucide-react-native';
-import { TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 function App() {
   return (
@@ -111,6 +132,11 @@ function App() {
         fallbackIcon={AlertCircle}
         accessibilityLabel="Unknown icon"
       />
+      
+      {/* Interactive usage */}
+      <TouchableOpacity onPress={() => console.log('Icon pressed!')}>
+        <SmartIcon name="heart" size={24} color="red" />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -357,251 +383,6 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 ---
 
-## Testing Guide
-
-### Overview
-This guide shows you how to test your `smart-icons` npm package locally before publishing.
-
-### 📦 Package Structure
-```
-smart-icons/
-├── dist/
-│   ├── react/           # React web version
-│   └── react-native/    # React Native version
-├── src/
-│   ├── shared/          # Common logic
-│   ├── react/           # React implementation
-│   └── react-native/    # React Native implementation
-└── package.json
-```
-
-### 🚀 Testing Methods
-
-#### Method 1: npm link (Recommended)
-```bash
-# 1. In your package directory
-cd smart-icons
-npm run build
-npm link
-
-# 2. Create test project
-mkdir test-project
-cd test-project
-npm init -y
-npm install react react-dom lucide-react
-
-# 3. Link your package
-npm link smart-icons
-
-# 4. Test in your app
-```
-
-#### Method 2: npm pack + install
-```bash
-# 1. Create package tarball
-cd smart-icons
-npm run build
-npm pack
-
-# 2. Install in test project
-cd test-project
-npm install ../smart-icons-1.0.0.tgz
-```
-
-#### Method 3: File path dependency
-```bash
-# In test project package.json
-{
-  "dependencies": {
-    "smart-icons": "file:../smart-icons"
-  }
-}
-```
-
-### 🧪 Test Scenarios
-
-#### 1. Basic Usage
-```jsx
-import { SmartIcon } from 'smart-icons';
-
-// Exact matches
-<SmartIcon name="home" size={24} color="blue" />
-<SmartIcon name="search" size={24} color="green" />
-<SmartIcon name="settings" size={24} color="purple" />
-```
-
-#### 2. Prefix Matching
-```jsx
-// Fuzzy matching with prefixMatch prop
-<SmartIcon name="cal" prefixMatch={true} size={24} />
-<SmartIcon name="pho" prefixMatch={true} size={24} />
-<SmartIcon name="sea" prefixMatch={true} size={24} />
-```
-
-#### 3. Spread Props
-```jsx
-// Custom styling and props
-<SmartIcon 
-  name="star" 
-  size={32} 
-  color="gold"
-  style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-/>
-```
-
-#### 4. Fallback Handling
-```jsx
-// Non-existent icons (should render nothing)
-<SmartIcon name="nonexistent" size={24} />
-<SmartIcon name="invalid" size={24} />
-```
-
-#### 5. Platform-Specific Imports
-```jsx
-// React web
-import { SmartIcon } from 'smart-icons/react';
-
-// React Native
-import { SmartIcon } from 'smart-icons/react-native';
-```
-
-### Testing Checklist
-
-#### ✅ Functionality Tests
-- [ ] Exact icon name matching works
-- [ ] Prefix matching works (prefixMatch=true)
-- [ ] Spread props work (size, color, style, etc.)
-- [ ] Fallback handling works (non-existent icons)
-- [ ] Both React and React Native versions work
-
-#### ✅ Performance Tests
-- [ ] Icon lookup is fast (O(1) for exact matches)
-- [ ] Prefix matching is reasonable (O(k) for fuzzy matches)
-- [ ] No memory leaks in icon registry
-
-#### ✅ Edge Cases
-- [ ] Empty string names
-- [ ] Very long names
-- [ ] Special characters in names
-- [ ] Case sensitivity
-- [ ] Multiple rapid lookups
-
-### 🛠️ Test Commands
-
-#### Run Tests
-```bash
-# In package directory
-npm test
-
-# Build and test
-npm run build && npm test
-```
-
-#### Check Package Contents
-```bash
-# See what's in the package
-npm pack --dry-run
-
-# Install and verify
-npm install smart-icons-1.0.0.tgz
-```
-
-### 📱 Platform-Specific Testing
-
-#### React Web Testing
-```bash
-# Create React app
-npx create-react-app test-react
-cd test-react
-npm link smart-icons
-# Test in browser
-```
-
-#### React Native Testing
-```bash
-# Create React Native app
-npx react-native init TestRN
-cd TestRN
-npm link smart-icons
-# Test on device/simulator
-```
-
-### 🐛 Debugging Tips
-
-#### 1. Check Package Structure
-```bash
-# Verify dist folder exists
-ls -la dist/
-
-# Check exports in package.json
-cat package.json | grep -A 10 "exports"
-```
-
-#### 2. Verify Imports
-```bash
-# Test import resolution
-node -e "console.log(require.resolve('smart-icons'))"
-```
-
-#### 3. Check Registry
-```bash
-# Test registry initialization
-node -e "
-const { getRegistry } = require('smart-icons/dist/shared/registry');
-console.log(Object.keys(getRegistry()));
-"
-```
-
-### 📊 Performance Benchmarks
-
-#### Expected Performance
-- **Exact match lookup**: ~1-5μs (O(1))
-- **Prefix match lookup**: ~50-100μs (O(k))
-- **Package size**: ~20-30KB
-- **Memory usage**: ~1-2MB for full registry
-
-#### Test Performance
-```javascript
-// Performance test
-const start = performance.now();
-for (let i = 0; i < 1000; i++) {
-  findIconKey('home', 'lucide');
-}
-const end = performance.now();
-console.log(`1000 lookups took ${end - start}ms`);
-```
-
-### 🚀 Publishing Checklist
-
-Before publishing to npm:
-
-- [ ] All tests pass
-- [ ] Package builds successfully
-- [ ] No TypeScript errors
-- [ ] README is complete
-- [ ] Version number is correct
-- [ ] Package size is reasonable
-- [ ] All exports work correctly
-- [ ] Both platforms tested
-
-### 🆘 Troubleshooting
-
-#### Common Issues
-
-1. **Module not found**: Check package.json exports
-2. **TypeScript errors**: Verify .d.ts files are generated
-3. **Build failures**: Check tsconfig.json files
-4. **Link not working**: Try `npm unlink` then `npm link` again
-
-#### Getting Help
-
-- Check package.json exports configuration
-- Verify dist/ folder contains built files
-- Test with a minimal example first
-- Use `npm ls` to check dependency tree
-
----
-
 ## Performance
 
 ### Lookup Performance
@@ -627,7 +408,7 @@ Before publishing to npm:
 ### Adding New Icons
 
 ```tsx
-import { registerIconFamily } from 'smart-icons/react'; // or react-native
+import { registerIconFamily } from 'smart-icons-kit'; // or react-native
 import { CustomIcon } from './CustomIcon';
 
 registerIconFamily('custom', {

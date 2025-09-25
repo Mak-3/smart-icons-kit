@@ -3,7 +3,10 @@
   "compilerOptions": {
     "outDir": "./dist/react-native",
     "rootDir": "./src",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "module": "CommonJS",
+    "target": "ES2018",
+    "jsx": "react"
   },
   "include": [
     "src/react-native/**/*",

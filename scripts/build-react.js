@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
-import { execSync } from 'child_process';
-import { copyFileSync, mkdirSync, readdirSync, statSync, rmSync, readFileSync, writeFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+const { execSync } = require('child_process');
+const { copyFileSync, mkdirSync, readdirSync, statSync, rmSync, readFileSync, writeFileSync } = require('fs');
+const { join } = require('path');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 const rootDir = join(__dirname, '..');
 
 const reactDistDir = join(rootDir, 'dist', 'react');
