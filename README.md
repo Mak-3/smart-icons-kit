@@ -52,18 +52,6 @@ function App() {
       {/* Fuzzy matching with prefixMatch prop */}
       <SmartIcon name="hom" prefixMatch size={24} color="green" /> {/* matches "home" */}
       
-      {/* Spread props - all SVG attributes and events work */}
-      <SmartIcon 
-        name="search" 
-        width={32} 
-        height={32} 
-        fill="none" 
-        stroke="red" 
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      
       {/* Fallback icon when name not found */}
       <SmartIcon 
         name="nonexistent-icon" 
@@ -84,16 +72,6 @@ function App() {
 npm install smart-icons-kit react-native-svg lucide-react-native buffer
 ```
 
-#### Setup
-For React Native/Expo projects, add this to your main App.js/App.tsx **before** other imports:
-
-```tsx
-import { Buffer } from 'buffer';
-if (typeof global.Buffer === 'undefined') {
-  global.Buffer = Buffer;
-}
-```
-
 #### Usage
 ```tsx
 import { SmartIcon } from 'smart-icons-kit';
@@ -111,18 +89,6 @@ function App() {
       
       {/* Fuzzy matching with prefixMatch prop */}
       <SmartIcon name="hom" prefixMatch size={24} color="green" /> {/* matches "home" */}
-      
-      {/* Spread props - all React Native SVG attributes work */}
-      <SmartIcon 
-        name="search" 
-        width={32} 
-        height={32} 
-        fill="none" 
-        stroke="red" 
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
       
       {/* Fallback icon when name not found */}
       <SmartIcon 
@@ -150,7 +116,6 @@ function App() {
 - **Fuzzy Prefix Matching**: Find icons by typing 3+ characters with `prefixMatch` prop
 - **Flexible Prop Spreading**: All SVG/icon props are automatically supported
 - **Fallback Icons**: Graceful fallback when icons aren't found
-- **Multiple Icon Families**: Support for different icon libraries
 - **Cross-Platform**: Works with both React web and React Native
 - **TypeScript Support**: Full type definitions included
 - **High Performance**: O(1) lookups for exact matches, O(k) for fuzzy matches

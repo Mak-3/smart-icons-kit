@@ -8,7 +8,11 @@
   "react-native": "dist/react-native/index.js",
   "exports": {
     ".": {
-      "react-native": "./dist/react-native/index.js",
+      "react-native": {
+        "types": "./dist/react-native/index.d.ts",
+        "default": "./dist/react-native/index.js"
+      },
+      "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
   },
@@ -23,16 +27,15 @@
     "test": "jest",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "buffer": "^6.0.3"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
     "react-native": ">=0.70.0",
     "react-native-svg": ">=15.0.0",
     "lucide-react": ">=0.400.0",
-    "lucide-react-native": ">=0.400.0"
+    "lucide-react-native": ">=0.400.0",
+    "buffer": "^6.0.3"
   },
   "peerDependenciesMeta": {
     "react-dom": {
@@ -45,6 +48,9 @@
       "optional": true
     },
     "lucide-react": {
+      "optional": true
+    },
+    "lucide-react-native": {
       "optional": true
     }
   },
@@ -60,6 +66,10 @@
     "lucide",
     "smart-icons-kit"
   ],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mak-3/smart-icons-kit.git"
+  },
+  "author": "Mohammed Abdullah Khan (https://www.mohammedabdullahkhan.com)",
   "license": "MIT"
 }
