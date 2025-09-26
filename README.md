@@ -2,6 +2,10 @@
 
 A smart icon component that works with both React web and React Native, featuring intelligent synonym matching, fuzzy prefix matching, and flexible prop spreading with fallback support.
 
+## 🎥 Demo
+
+![Smart Icons Kit Demo](./assets/smart-icons-kit.gif)
+
 ## Table of Contents
 
 1. [Installation](#installation)
