@@ -14,8 +14,9 @@ A smart icon component that works with both React web and React Native, featurin
 4. [Comprehensive Icon Dataset](#comprehensive-icon-dataset)
 5. [API Reference](#api-reference)
 6. [Advanced Usage](#advanced-usage)
-8. [Performance](#performance)
-9. [Extensibility](#extensibility)
+7. [Performance](#performance)
+8. [Extensibility](#extensibility)
+9. [Contributing via Hacktoberfest 2025](#contributing-via-hacktoberfest-2025)
 10. [License](#license)
 
 ---
@@ -415,6 +416,25 @@ registerIconFamily('feather', {
 5. **Cross-Platform**: Works on React web and React Native
 6. **Type-Safe**: Full TypeScript support
 7. **Future-Proof**: Easy to extend with more icons
+
+---
+
+## Contributing via Hacktoberfest 2025
+
+Contributions are welcome! This project is participating in **Hacktoberfest 2025** 🎉.  
+You can contribute by:
+- Adding new icons or synonyms  
+- Improving documentation  
+- Enhancing performance or tests  
+- Fixing bugs or issues  
+
+### How to Contribute
+1. Fork this repo  
+2. Create a new branch  
+3. Make your changes  
+4. Submit a Pull Request  
+
+Please check [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
 
 ---
 
