@@ -18,7 +18,7 @@
 
 **A smart icon component that works with both React web and React Native, featuring intelligent synonym matching, fuzzy prefix matching, and flexible prop spreading with fallback support.**
 
-[Installation](#installation) • [Quick Start](#quick-start) • [Features](#features) • [Documentation](#api-reference) • [Contributing](#contributing-via-hacktoberfest-2025)
+[Installation](#installation) • [Quick Start](#quick-start) • [Architecture](#-architecture) • [Features](#features) • [Documentation](#api-reference) • [Contributing](#contributing-via-hacktoberfest-2025)
 
 </div>
 
@@ -34,14 +34,15 @@
 
 1. [Installation](#installation)
 2. [Quick Start](#quick-start)
-3. [Features](#features)
-4. [Comprehensive Icon Dataset](#comprehensive-icon-dataset)
-5. [API Reference](#api-reference)
-6. [Advanced Usage](#advanced-usage)
-7. [Performance](#performance)
-8. [Extensibility](#extensibility)
-9. [Contributing via Hacktoberfest 2025](#contributing-via-hacktoberfest-2025)
-10. [License](#license)
+3. [🏗️ Architecture](#-architecture)
+4. [Features](#features)
+5. [Comprehensive Icon Dataset](#comprehensive-icon-dataset)
+6. [API Reference](#api-reference)
+7. [Advanced Usage](#advanced-usage)
+8. [Performance](#performance)
+9. [Extensibility](#extensibility)
+10. [Contributing via Hacktoberfest 2025](#contributing-via-hacktoberfest-2025)
+11. [License](#license)
 
 ---
 
@@ -136,6 +137,91 @@ function App() {
   );
 }
 ```
+
+---
+
+## 🏗️ Architecture
+
+### System Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    SMART ICONS KIT ARCHITECTURE                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────┐    ┌─────────────────────────────────────┐ │
+│  │   USER LAYER    │    │           CORE COMPONENTS           │ │
+│  │                 │    │                                     │ │
+│  │ ┌─────────────┐ │    │  ┌─────────────────────────────────┐ │ │
+│  │ │ React Web   │◄┼────┼──┤      SmartIcon Component        │ │ │
+│  │ └─────────────┘ │    │  └─────────────────────────────────┘ │ │
+│  │                 │    │                 │                    │ │
+│  │ ┌─────────────┐ │    │  ┌──────────────┼──────────────────┐ │ │
+│  │ │ React       │◄┼────┼──┤        Matching Engine          │ │ │
+│  │ │ Native      │ │    │  │  • Exact Match (O1)             │ │ │
+│  │ └─────────────┘ │    │  │  • Synonym Match                │ │ │
+│  │                 │    │  │  • Prefix Match (Ok)            │ │ │
+│  │ ┌─────────────┐ │    │  │  • Sentence Match (O n×k)       │ │ │
+│  │ │   Expo      │◄┼────┼──└──────────────┼──────────────────┘ │ │
+│  │ └─────────────┘ │    │                 │                    │ │
+│  └─────────────────┘    │  ┌──────────────┼──────────────────┐ │ │
+│                         │  │         Icon Registry           │ │ │
+│  ┌─────────────────┐    │  │  • 200+ Lucide Icons           │ │ │
+│  │   DATA LAYER    │    │  │  • Custom Icon Families        │ │ │
+│  │                 │    │  │  • Fallback Handler            │ │ │
+│  │ ┌─────────────┐ │    │  └──────────────┼──────────────────┘ │ │
+│  │ │ Icon DB     │◄┼────┼─────────────────┤                    │ │
+│  │ │ 200+ Icons  │ │    │  ┌──────────────┼──────────────────┐ │ │
+│  │ └─────────────┘ │    │  │   Cross-Platform Adapter       │ │ │
+│  │                 │    │  │  • React Web Renderer          │ │ │
+│  │ ┌─────────────┐ │    │  │  • React Native Renderer       │ │ │
+│  │ │  Synonym    │◄┼────┼──┤  • Prop Spreading Engine       │ │ │
+│  │ │ Dictionary  │ │    │  └────────────────────────────────┘ │ │
+│  │ │ 1000+ Terms │ │    │                                     │ │
+│  │ └─────────────┘ │    └─────────────────────────────────────┘ │
+│  │                 │                                            │
+│  │ ┌─────────────┐ │    ┌─────────────────────────────────────┐ │
+│  │ │  Category   │◄┼────┤       EXTERNAL DEPENDENCIES         │ │
+│  │ │   Index     │ │    │                                     │ │
+│  │ │  19 Cats    │ │    │  ┌─────────┐ ┌─────────┐ ┌─────────┐ │ │
+│  │ └─────────────┘ │    │  │ lucide- │ │lucide- │ │ react-  │ │ │
+│  └─────────────────┘    │  │  react  │ │ native │ │ native- │ │ │
+│                         │  │         │ │         │ │   svg   │ │ │
+│                         │  └─────────┘ └─────────┘ └─────────┘ │ │
+│                         └─────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Architecture Components
+
+#### 🎯 **Core Layer**
+- **SmartIcon Component**: Main entry point with intelligent prop spreading
+- **Matching Engine**: Multi-layered icon discovery with O(1) to O(n×k) performance
+- **Icon Registry**: Centralized management with fallback support
+- **Cross-Platform Adapter**: Unified API for React Web and React Native
+
+#### 📊 **Data Layer**
+- **Icon Database**: 200+ curated Lucide icons
+- **Synonym Dictionary**: 1000+ intelligent synonyms
+- **Category Index**: 19 organized icon categories
+
+#### 🔗 **External Dependencies**
+- **lucide-react**: Web icon components
+- **lucide-react-native**: Mobile icon components  
+- **react-native-svg**: SVG rendering for React Native
+
+### Data Flow
+1. **Input** → User provides icon name and props
+2. **Matching** → Engine processes through 4 matching strategies
+3. **Resolution** → Registry finds appropriate icon component
+4. **Rendering** → Adapter renders using platform-specific components
+5. **Spreading** → All additional props are passed to rendered icon
+
+### Performance Characteristics
+- **Exact Matches**: O(1) - Direct hash map lookup
+- **Fuzzy Matches**: O(k) - Linear scan through synonyms
+- **Sentence Matches**: O(n×k) - Word-by-word synonym matching
+- **Memory**: Optimized icon loading with tree shaking support
 
 ---
 
@@ -505,30 +591,6 @@ Check out issues labeled with `good-first-issue` or `hacktoberfest` to get start
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```
-MIT License
-
-Copyright (c) 2025 Mohammed Abdullah Khan
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
 ---
 
 ## 🎉 Summary
@@ -542,6 +604,7 @@ Smart Icons Kit provides a comprehensive, high-performance icon solution for Rea
 - ✅ **Type-safe** with full TypeScript support
 - ✅ **Extensible** architecture for custom icon families
 - ✅ **High performance** with O(1) exact matches and O(k) fuzzy matches
+- ✅ **Modular architecture** with clear separation of concerns
 
 Perfect for modern web and mobile applications that need a comprehensive, intelligent icon system! 🚀
 
