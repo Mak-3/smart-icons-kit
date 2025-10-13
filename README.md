@@ -1,27 +1,52 @@
-# Smart Icons Kit - Complete Documentation
+# Smart Icons Kit
 
-A smart icon component that works with both React web and React Native, featuring intelligent synonym matching, fuzzy prefix matching, and flexible prop spreading with fallback support.
+<div align="center">
+
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Lucide](https://img.shields.io/badge/Lucide-000000?style=for-the-badge&logo=lucide&logoColor=white)
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/smart-icons-kit?style=flat-square)](https://www.npmjs.com/package/smart-icons-kit)
+[![Issues](https://img.shields.io/github/issues/Mak-3/smart-icons-kit)](https://github.com/Mak-3/smart-icons-kit/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/Mak-3/smart-icons-kit)](https://github.com/Mak-3/smart-icons-kit/pulls)
+[![Contributors](https://img.shields.io/github/contributors/Mak-3/smart-icons-kit)](https://github.com/Mak-3/smart-icons-kit/graphs/contributors)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2025-orange)](https://hacktoberfest.com/)
+
+**A smart icon component that works with both React web and React Native, featuring intelligent synonym matching, fuzzy prefix matching, and flexible prop spreading with fallback support.**
+
+[Installation](#installation) • [Quick Start](#quick-start) • [Architecture](#architecture) • [Features](#features) • [Documentation](#api-reference) • [Contributing](#contributing-via-hacktoberfest-2025)
+
+</div>
+
+---
 
 ## 🎥 Demo
 
 ![Smart Icons Kit Demo](./assets/smart-icons-kit.gif)
 
-## Table of Contents
+---
+
+## 📋 Table of Contents
 
 1. [Installation](#installation)
 2. [Quick Start](#quick-start)
-3. [Features](#features)
-4. [Comprehensive Icon Dataset](#comprehensive-icon-dataset)
-5. [API Reference](#api-reference)
-6. [Advanced Usage](#advanced-usage)
-7. [Performance](#performance)
-8. [Extensibility](#extensibility)
-9. [Contributing via Hacktoberfest 2025](#contributing-via-hacktoberfest-2025)
-10. [License](#license)
+3. [Architecture](#architecture)
+4. [Features](#features)
+5. [Comprehensive Icon Dataset](#comprehensive-icon-dataset)
+6. [API Reference](#api-reference)
+7. [Advanced Usage](#advanced-usage)
+8. [Performance](#performance)
+9. [Extensibility](#extensibility)
+10. [Contributing via Hacktoberfest 2025](#contributing-via-hacktoberfest-2025)
+11. [License](#license)
 
 ---
 
-## Installation
+## 📦 Installation
 
 ### For React Web
 ```bash
@@ -37,7 +62,7 @@ npm install smart-icons-kit react-native-svg lucide-react-native buffer
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ### For React Web
 
@@ -115,21 +140,107 @@ function App() {
 
 ---
 
-## Features
+## 🏗️ Architecture
 
-- **Smart Synonym Matching**: Icons can be found by multiple names (e.g., "home", "house", "building")
-- **Fuzzy Prefix Matching**: Find icons by typing 3+ characters with `prefixMatch` prop
-- **Flexible Prop Spreading**: All SVG/icon props are automatically supported
-- **Fallback Icons**: Graceful fallback when icons aren't found
-- **Cross-Platform**: Works with both React web and React Native
-- **TypeScript Support**: Full type definitions included
-- **High Performance**: O(1) lookups for exact matches, O(k) for fuzzy matches
+### System Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    SMART ICONS KIT ARCHITECTURE                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────────┐    ┌─────────────────────────────────────┐ │
+│  │   USER LAYER    │    │           CORE COMPONENTS           │ │
+│  │                 │    │                                     │ │
+│  │ ┌─────────────┐ │    │  ┌─────────────────────────────────┐│ │
+│  │ │ React Web   │◄┼────┼──┤      SmartIcon Component        ││ │
+│  │ └─────────────┘ │    │  └─────────────────────────────────┘│ │
+│  │                 │    │                 │                   │ │
+│  │ ┌─────────────┐ │    │  ┌──────────────┼──────────────────┐│ │
+│  │ │ React       │◄┼────┼──┤        Matching Engine          ││ │
+│  │ │ Native      │ │    │  │  • Exact Match (O1)             ││ │
+│  │ └─────────────┘ │    │  │  • Synonym Match                ││ │
+│  │                 │    │  │  • Prefix Match (Ok)            ││ │
+│  │ ┌─────────────┐ │    │  │  • Sentence Match (O n×k)       ││ │
+│  │ │   Expo      │◄┼────┼──└──────────────┼──────────────────┘│ │
+│  │ └─────────────┘ │    │                 │                   │ │
+│  └─────────────────┘    │  ┌──────────────┼──────────────────┐│ │
+│                         │  │         Icon Registry           ││ │
+│  ┌─────────────────┐    │  │  • 200+ Lucide Icons            ││ │
+│  │   DATA LAYER    │    │  │  • Custom Icon Families         ││ │
+│  │                 │    │  │  • Fallback Handler             ││ │
+│  │ ┌─────────────┐ │    │  └──────────────┼──────────────────┘│ │
+│  │ │ Icon DB     │◄┼────┼─────────────────┤                   │ │
+│  │ │ 200+ Icons  │ │    │  ┌──────────────┼──────────────────┐│ │
+│  │ └─────────────┘ │    │  │   Cross-Platform Adapter        ││ │
+│  │                 │    │  │  • React Web Renderer           ││ │
+│  │ ┌─────────────┐ │    │  │  • React Native Renderer        ││ │
+│  │ │  Synonym    │◄┼────┼──└─────────────────────────────────┘│ │
+│  │ │ Dictionary  │ │    │                                     │ │
+│  │ │ 1000+ Terms │ │    └─────────────────────────────────────┘ │
+│  │ └─────────────┘ │                                            │
+│  │                 │                                            │
+│  │ ┌─────────────┐ │    ┌─────────────────────────────────────┐ │
+│  │ │  Category   │◄┼────┤       EXTERNAL DEPENDENCIES         │ │
+│  │ │   Index     │ │    │                                     │ │
+│  │ │  19 Cats    │ │    │  ┌─────────┐ ┌─────────┐ ┌─────────┐│ │
+│  │ └─────────────┘ │    │  │ lucide- │ │ lucide- │ │ react-  ││ │
+│  └─────────────────┘    │  │  react  │ │ native  │ │ native- ││ │
+│                         │  │         │ │         │ │   svg   ││ │
+│                         │  └─────────┘ └─────────┘ └─────────┘│ │
+│                         └─────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Architecture Components
+
+#### Core Layer
+- **SmartIcon Component**: Main entry point with intelligent prop spreading
+- **Matching Engine**: Multi-layered icon discovery with O(1) to O(n×k) performance
+- **Icon Registry**: Centralized management with fallback support
+- **Cross-Platform Adapter**: Unified API for React Web and React Native
+
+#### Data Layer
+- **Icon Database**: 200+ curated Lucide icons
+- **Synonym Dictionary**: 1000+ intelligent synonyms
+- **Category Index**: 19 organized icon categories
+
+#### External Dependencies
+- **lucide-react**: Web icon components
+- **lucide-react-native**: Mobile icon components  
+- **react-native-svg**: SVG rendering for React Native
+
+### Data Flow
+1. **Input** → User provides icon name and props
+2. **Matching** → Engine processes through 4 matching strategies
+3. **Resolution** → Registry finds appropriate icon component
+4. **Rendering** → Adapter renders using platform-specific components
+5. **Spreading** → All additional props are passed to rendered icon
+
+### Performance Characteristics
+- **Exact Matches**: O(1) - Direct hash map lookup
+- **Fuzzy Matches**: O(k) - Linear scan through synonyms
+- **Sentence Matches**: O(n×k) - Word-by-word synonym matching
+- **Memory**: Optimized icon loading with tree shaking support
 
 ---
 
-## Comprehensive Icon Dataset
+## ✨ Features
 
-### 📊 Dataset Statistics
+- 🎯 **Smart Synonym Matching**: Icons can be found by multiple names (e.g., "home", "house", "building")
+- 🔍 **Fuzzy Prefix Matching**: Find icons by typing 3+ characters with `prefixMatch` prop
+- 📝 **Sentence Matching**: Extract icon names from sentences with `sentenceMatch` prop
+- 🎨 **Flexible Prop Spreading**: All SVG/icon props are automatically supported
+- 🛡️ **Fallback Icons**: Graceful fallback when icons aren't found
+- 📱 **Cross-Platform**: Works with both React web and React Native
+- 🔷 **TypeScript Support**: Full type definitions included
+- ⚡ **High Performance**: O(1) lookups for exact matches, O(k) for fuzzy matches
+
+---
+
+## 📊 Comprehensive Icon Dataset
+
+### Dataset Statistics
 
 - **Total Icons**: 200+
 - **React Web**: 200+ icons with 4-6 synonyms each
@@ -137,83 +248,71 @@ function App() {
 - **Total Synonyms**: 1000+ unique synonyms
 - **Categories**: 19+ organized categories
 
-### 🗂️ Icon Categories
+### Icon Categories
 
-#### **1. Navigation & UI (10 icons)**
-- home, search, menu, settings, user, users, bell, bellOff, eye, eyeOff
+#### 1. Navigation & UI (10 icons)
+`home`, `search`, `menu`, `settings`, `user`, `users`, `bell`, `bellOff`, `eye`, `eyeOff`
 
-#### **2. Arrows & Navigation (16 icons)**
-- chevronDown, chevronUp, chevronLeft, chevronRight, chevronsDown, chevronsUp, chevronsLeft, chevronsRight
-- arrowDown, arrowUp, arrowLeft, arrowRight, arrowDownLeft, arrowDownRight, arrowUpLeft, arrowUpRight
+#### 2. Arrows & Navigation (16 icons)
+`chevronDown`, `chevronUp`, `chevronLeft`, `chevronRight`, `chevronsDown`, `chevronsUp`, `chevronsLeft`, `chevronsRight`, `arrowDown`, `arrowUp`, `arrowLeft`, `arrowRight`, `arrowDownLeft`, `arrowDownRight`, `arrowUpLeft`, `arrowUpRight`
 
-#### **3. Basic Actions (10 icons)**
-- plus, minus, x, check, circle, square, triangle, star, heart, bookmark
+#### 3. Basic Actions (10 icons)
+`plus`, `minus`, `x`, `check`, `circle`, `square`, `triangle`, `star`, `heart`, `bookmark`
 
-#### **4. Actions & Controls (15 icons)**
-- edit, edit2, edit3, save, copy, scissors, trash, trash2, delete
-- download, upload, share, share2, link, link2, externalLink, refreshCw, refreshCcw
+#### 4. Actions & Controls (15 icons)
+`edit`, `edit2`, `edit3`, `save`, `copy`, `scissors`, `trash`, `trash2`, `delete`, `download`, `upload`, `share`, `share2`, `link`, `link2`, `externalLink`, `refreshCw`, `refreshCcw`
 
-#### **5. Media Controls (12 icons)**
-- play, pause, skipBack, skipForward, fastForward, rewind
-- volume, volume1, volume2, volumeX
+#### 5. Media Controls (12 icons)
+`play`, `pause`, `skipBack`, `skipForward`, `fastForward`, `rewind`, `volume`, `volume1`, `volume2`, `volumeX`
 
-#### **6. View Controls (8 icons)**
-- maximize, minimize, maximize2, minimize2, rotateCw, rotateCcw, zoomIn, zoomOut
+#### 6. View Controls (8 icons)
+`maximize`, `minimize`, `maximize2`, `minimize2`, `rotateCw`, `rotateCcw`, `zoomIn`, `zoomOut`
 
-#### **7. Communication (18 icons)**
-- mail, messageCircle, messageSquare, phone, phoneCall, phoneIncoming, phoneOutgoing, phoneMissed, phoneOff
-- send, mic, micOff, headphones, speaker, video, videoOff, camera, cameraOff
+#### 7. Communication (18 icons)
+`mail`, `messageCircle`, `messageSquare`, `phone`, `phoneCall`, `phoneIncoming`, `phoneOutgoing`, `phoneMissed`, `phoneOff`, `send`, `mic`, `micOff`, `headphones`, `speaker`, `video`, `videoOff`, `camera`, `cameraOff`
 
-#### **8. Files & Folders (16 icons)**
-- file, fileText, filePlus, fileMinus, folder, folderPlus, folderMinus, folderOpen
-- image, film, music, package, archive, inbox, clipboard, paperclip
+#### 8. Files & Folders (16 icons)
+`file`, `fileText`, `filePlus`, `fileMinus`, `folder`, `folderPlus`, `folderMinus`, `folderOpen`, `image`, `film`, `music`, `package`, `archive`, `inbox`, `clipboard`, `paperclip`
 
-#### **9. Technology & Devices (18 icons)**
-- smartphone, tablet, monitor, laptop, tv, watch, hardDrive, server, database, cpu
-- wifi, wifiOff, bluetooth, battery, batteryCharging, power, zap, zapOff
+#### 9. Technology & Devices (18 icons)
+`smartphone`, `tablet`, `monitor`, `laptop`, `tv`, `watch`, `hardDrive`, `server`, `database`, `cpu`, `wifi`, `wifiOff`, `bluetooth`, `battery`, `batteryCharging`, `power`, `zap`, `zapOff`
 
-#### **10. Social & Brand (8 icons)**
-- facebook, twitter, instagram, linkedin, github, gitlab, youtube, slack
+#### 10. Social & Brand (8 icons)
+`facebook`, `twitter`, `instagram`, `linkedin`, `github`, `gitlab`, `youtube`, `slack`
 
-#### **11. Business & Finance (15 icons)**
-- dollarSign, creditCard, shoppingCart, shoppingBag, package2, truck, briefcase, building
-- trendingUp, trendingDown, barChart, barChart2, pieChart, activity, target
+#### 11. Business & Finance (15 icons)
+`dollarSign`, `creditCard`, `shoppingCart`, `shoppingBag`, `package2`, `truck`, `briefcase`, `building`, `trendingUp`, `trendingDown`, `barChart`, `barChart2`, `pieChart`, `activity`, `target`
 
-#### **12. Time & Calendar (7 icons)**
-- calendar, clock, timer, sunrise, sunset, moon, sun
+#### 12. Time & Calendar (7 icons)
+`calendar`, `clock`, `timer`, `sunrise`, `sunset`, `moon`, `sun`
 
-#### **13. Weather & Nature (16 icons)**
-- cloud, cloudRain, cloudSnow, cloudLightning, cloudDrizzle, cloudOff, umbrella, droplet
-- wind, thermometer, compass, map, mapPin, globe, navigation, navigation2
+#### 13. Weather & Nature (16 icons)
+`cloud`, `cloudRain`, `cloudSnow`, `cloudLightning`, `cloudDrizzle`, `cloudOff`, `umbrella`, `droplet`, `wind`, `thermometer`, `compass`, `map`, `mapPin`, `globe`, `navigation`, `navigation2`
 
-#### **14. Security & Privacy (6 icons)**
-- lock, unlock, shield, shieldOff, key, fingerprint
+#### 14. Security & Privacy (6 icons)
+`lock`, `unlock`, `shield`, `shieldOff`, `key`, `fingerprint`
 
-#### **15. Tools & Utilities (14 icons)**
-- wrench, hammer, cog, sliders, filter, hash, tag
-- layers, grid, layout, sidebar, moreHorizontal, moreVertical
+#### 15. Tools & Utilities (14 icons)
+`wrench`, `hammer`, `cog`, `sliders`, `filter`, `hash`, `tag`, `layers`, `grid`, `layout`, `sidebar`, `moreHorizontal`, `moreVertical`
 
-#### **16. Text & Typography (12 icons)**
-- type, bold, italic, underline, alignLeft, alignCenter, alignRight, alignJustify
-- list, listOrdered, quote, code, terminal, command
+#### 16. Text & Typography (12 icons)
+`type`, `bold`, `italic`, `underline`, `alignLeft`, `alignCenter`, `alignRight`, `alignJustify`, `list`, `listOrdered`, `quote`, `code`, `terminal`, `command`
 
-#### **17. Status & Feedback (12 icons)**
-- checkCircle, xCircle, alertCircle, alertTriangle, alertOctagon, info, helpCircle
-- thumbsUp, thumbsDown, award, trophy, medal, flag
+#### 17. Status & Feedback (12 icons)
+`checkCircle`, `xCircle`, `alertCircle`, `alertTriangle`, `alertOctagon`, `info`, `helpCircle`, `thumbsUp`, `thumbsDown`, `award`, `trophy`, `medal`, `flag`
 
-#### **18. Shapes & Symbols (6 icons)**
-- hexagon, octagon, diamond, cross, bookmarkPlus, bookmarkMinus
+#### 18. Shapes & Symbols (6 icons)
+`hexagon`, `octagon`, `diamond`, `cross`, `bookmarkPlus`, `bookmarkMinus`
 
-#### **19. Transport and vehicle (5 icons)**
-- Car, Plane, Train, Ship, Bus,
+#### 19. Transport and Vehicle (5 icons)
+`car`, `plane`, `train`, `ship`, `bus`
 
-#### **20. Miscellaneous (13 icons)**
-- coffee, gamepad2, palette, brush, pen, pencil, eraser, ruler
-- gift, cake, pizza, apple, carrot, leaf, trees, flower, bug, fish, bird, cat, dog
+#### 20. Miscellaneous (13 icons)
+`coffee`, `gamepad2`, `palette`, `brush`, `pen`, `pencil`, `eraser`, `ruler`, `gift`, `cake`, `pizza`, `apple`, `carrot`, `leaf`, `trees`, `flower`, `bug`, `fish`, `bird`, `cat`, `dog`
 
 ### Key Features of the Dataset
 
-#### **Smart Synonym System**
+#### Smart Synonym System
 Each icon has 4-6 carefully curated synonyms:
 ```typescript
 home: {
@@ -222,7 +321,7 @@ home: {
 }
 ```
 
-#### **Comprehensive Coverage**
+#### Comprehensive Coverage
 - **Navigation**: All common UI navigation patterns
 - **Actions**: Complete set of user actions
 - **Communication**: Full communication suite
@@ -231,27 +330,44 @@ home: {
 - **Nature**: Weather and natural elements
 - **Tools**: Development and utility tools
 
-#### **No Duplicates**
+#### No Duplicates
 - Each icon name is unique
 - No conflicting synonyms
 - Clean, organized structure
 
-#### **Valid Icons**
+#### Valid Icons
 - All icons exist in Lucide React/React Native
 - Tested and verified imports
 - Consistent naming conventions
 
 ---
 
-## API Reference
+## 📖 API Reference
 
 ### SmartIcon Props
 
 #### Core Props
-- `name: string` - Icon name or synonym
+- `name: string` - Icon name or synonym (required)
 - `family?: string` - Icon family (default: "lucide")
 - `prefixMatch?: boolean` - Enable fuzzy matching for 3+ character inputs (default: false)
+- `sentenceMatch?: boolean` - Enable sentence-based icon extraction (default: false)
 - `fallbackIcon?: React.ComponentType<any>` - Fallback icon when name not found
+
+#### Standard Props
+All standard SVG props are supported through prop spreading:
+- `size?: number` - Icon size
+- `color?: string` - Icon color
+- `stroke?: string` - Stroke color
+- `fill?: string` - Fill color
+- `strokeWidth?: number` - Stroke width
+- `className?: string` - CSS class
+- `style?: CSSProperties` - Inline styles
+- `onClick?: (event) => void` - Click handler
+- `onMouseEnter?: (event) => void` - Mouse enter handler
+- `onMouseLeave?: (event) => void` - Mouse leave handler
+- And many more...
+
+---
 
 ## Advanced Usage
 
@@ -265,10 +381,12 @@ When `prefixMatch={true}` is enabled, the component will attempt to find icons u
 4. **Reverse Prefix Match**: Find synonyms where input is a prefix
 
 **Examples:**
-- `"hom"` → matches `"home"`
-- `"sea"` → matches `"search"`
-- `"set"` → matches `"settings"`
-- `"mai"` → matches `"mail"`
+```tsx
+<SmartIcon name="hom" prefixMatch /> // matches "home"
+<SmartIcon name="sea" prefixMatch /> // matches "search"
+<SmartIcon name="set" prefixMatch /> // matches "settings"
+<SmartIcon name="mai" prefixMatch /> // matches "mail"
+```
 
 ### Sentence Matching
 
@@ -280,15 +398,17 @@ When `sentenceMatch={true}` is enabled, the component will:
 4. **Combined with Prefix**: If `prefixMatch` is also enabled, apply fuzzy matching to each word
 
 **Examples:**
-- `"manali hotel"` → finds `"hotel"` icon
-- `"luxury restaurant"` → finds `"restaurant"` icon
-- `"red car"` → finds `"car"` icon
-- `"coffee shop"` → finds `"coffee"` icon
-- `"shopping mall"` → finds `"shopping"` icon
-- `"general hospital"` → finds `"hospital"` icon
-- `"elementary school"` → finds `"school"` icon
-- `"office building"` → finds `"building"` icon
-- `"private plane"` → finds `"plane"` icon
+```tsx
+<SmartIcon name="manali hotel" sentenceMatch /> // finds "hotel"
+<SmartIcon name="luxury restaurant" sentenceMatch /> // finds "restaurant"
+<SmartIcon name="red car" sentenceMatch /> // finds "car"
+<SmartIcon name="coffee shop" sentenceMatch /> // finds "coffee"
+<SmartIcon name="shopping mall" sentenceMatch /> // finds "shopping"
+<SmartIcon name="general hospital" sentenceMatch /> // finds "hospital"
+<SmartIcon name="elementary school" sentenceMatch /> // finds "school"
+<SmartIcon name="office building" sentenceMatch /> // finds "building"
+<SmartIcon name="private plane" sentenceMatch /> // finds "plane"
+```
 
 ### Fallback Icons
 
@@ -351,13 +471,25 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 />
 ```
 
+**Accessible Icons:**
+```tsx
+<SmartIcon 
+  name="search" 
+  size={24}
+  aria-label="Search"
+  role="img"
+  focusable="true"
+/>
+```
+
 ---
 
-## Performance
+## ⚡ Performance
 
 ### Lookup Performance
 - **Exact Matches**: O(1) - Direct hash map lookup
 - **Fuzzy Matches**: O(k) - where k is the number of synonyms
+- **Sentence Matches**: O(n × k) - where n is words and k is synonyms
 - **Memory**: O(n × m) - where n is icons and m is average synonyms per icon
 
 ### Bundle Size
@@ -373,12 +505,12 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 ---
 
-## Extensibility
+## 🔧 Extensibility
 
 ### Adding New Icons
 
 ```tsx
-import { registerIconFamily } from 'smart-icons-kit'; // or react-native
+import { registerIconFamily } from 'smart-icons-kit';
 import { CustomIcon } from './CustomIcon';
 
 registerIconFamily('custom', {
@@ -402,8 +534,15 @@ registerIconFamily('custom', {
 ### Adding New Families
 
 ```tsx
+import { registerIconFamily } from 'smart-icons-kit';
+import * as FeatherIcons from 'feather-icons-react';
+
 registerIconFamily('feather', {
-  // Feather icons
+  heart: {
+    synonyms: ['heart', 'love', 'like'],
+    component: FeatherIcons.Heart,
+  },
+  // Add more Feather icons...
 });
 ```
 
@@ -419,41 +558,62 @@ registerIconFamily('feather', {
 
 ---
 
-## Contributing via Hacktoberfest 2025
+## 🤝 Contributing via Hacktoberfest 2025
 
-Contributions are welcome! This project is participating in **Hacktoberfest 2025** 🎉.  
+Contributions are welcome! This project is participating in **Hacktoberfest 2025** 🎉
+
 You can contribute by:
-- Adding new icons or synonyms  
-- Improving documentation  
-- Enhancing performance or tests  
-- Fixing bugs or issues  
+- 🎨 Adding new icons or synonyms
+- 📚 Improving documentation
+- ⚡ Enhancing performance or tests
+- 🐛 Fixing bugs or issues
+- 🌍 Adding internationalization support
+- 💡 Proposing new features
 
 ### How to Contribute
-1. Fork this repo  
-2. Create a new branch  
-3. Make your changes  
-4. Submit a Pull Request  
+
+1. **Fork this repository**
+2. **Create a new branch** (`git checkout -b feature/amazing-feature`)
+3. **Make your changes**
+4. **Commit your changes** (`git commit -m 'Add some amazing feature'`)
+5. **Push to the branch** (`git push origin feature/amazing-feature`)
+6. **Open a Pull Request**
 
 Please check [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
 
----
+### Good First Issues
 
-## License
-
-MIT
+Check out issues labeled with `good-first-issue` or `hacktoberfest` to get started!
 
 ---
 
-## Summary
+## 📄 License
 
-Smart Icons provides a comprehensive, high-performance icon solution for React applications with:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- **200+ icons** with 1000+ synonyms across 19 categories
-- **Smart matching** with exact and fuzzy prefix matching
-- **Flexible props** supporting all SVG attributes and event handlers
-- **Cross-platform** support for React web and React Native
-- **Type-safe** with full TypeScript support
-- **Extensible** architecture for custom icon families
-- **High performance** with O(1) exact matches and O(k) fuzzy matches
+---
+
+## 🎉 Summary
+
+Smart Icons Kit provides a comprehensive, high-performance icon solution for React applications with:
+
+- ✅ **200+ icons** with 1000+ synonyms across 19 categories
+- ✅ **Smart matching** with exact, fuzzy prefix, and sentence matching
+- ✅ **Flexible props** supporting all SVG attributes and event handlers
+- ✅ **Cross-platform** support for React web and React Native
+- ✅ **Type-safe** with full TypeScript support
+- ✅ **Extensible** architecture for custom icon families
+- ✅ **High performance** with O(1) exact matches and O(k) fuzzy matches
+- ✅ **Modular architecture** with clear separation of concerns
 
 Perfect for modern web and mobile applications that need a comprehensive, intelligent icon system! 🚀
+
+---
+
+<div align="center">
+
+**Made with ❤️ by [Mohammed Abdullah Khan](https://github.com/Mak-3)**
+
+⭐ Star this repo if you find it useful!
+
+</div>
