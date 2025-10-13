@@ -24,13 +24,13 @@
 
 ---
 
-## Demo
+## 🎥 Demo
 
 ![Smart Icons Kit Demo](./assets/smart-icons-kit.gif)
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
 1. [Installation](#installation)
 2. [Quick Start](#quick-start)
@@ -46,7 +46,7 @@
 
 ---
 
-## Installation
+## 📦 Installation
 
 ### For React Web
 ```bash
@@ -62,7 +62,7 @@ npm install smart-icons-kit react-native-svg lucide-react-native buffer
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ### For React Web
 
@@ -140,7 +140,7 @@ function App() {
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 ### System Overview
 
@@ -152,30 +152,30 @@ function App() {
 │  ┌─────────────────┐    ┌─────────────────────────────────────┐ │
 │  │   USER LAYER    │    │           CORE COMPONENTS           │ │
 │  │                 │    │                                     │ │
-│  │ ┌─────────────┐ │    │  ┌─────────────────────────────────┐ │ │
-│  │ │ React Web   │◄┼────┼──┤      SmartIcon Component        │ │ │
-│  │ └─────────────┘ │    │  └─────────────────────────────────┘ │ │
-│  │                 │    │                 │                    │ │
-│  │ ┌─────────────┐ │    │  ┌──────────────┼──────────────────┐ │ │
-│  │ │ React       │◄┼────┼──┤        Matching Engine          │ │ │
-│  │ │ Native      │ │    │  │  • Exact Match (O1)             │ │ │
-│  │ └─────────────┘ │    │  │  • Synonym Match                │ │ │
-│  │                 │    │  │  • Prefix Match (Ok)            │ │ │
-│  │ ┌─────────────┐ │    │  │  • Sentence Match (O n×k)       │ │ │
-│  │ │   Expo      │◄┼────┼──└──────────────┼──────────────────┘ │ │
-│  │ └─────────────┘ │    │                 │                    │ │
-│  └─────────────────┘    │  ┌──────────────┼──────────────────┐ │ │
-│                         │  │         Icon Registry           │ │ │
-│  ┌─────────────────┐    │  │  • 200+ Lucide Icons            │ │ │
-│  │   DATA LAYER    │    │  │  • Custom Icon Families         │ │ │
-│  │                 │    │  │  • Fallback Handler             │ │ │
-│  │ ┌─────────────┐ │    │  └──────────────┼──────────────────┘ │ │
-│  │ │ Icon DB     │◄┼────┼─────────────────┤                    │ │
-│  │ │ 200+ Icons  │ │    │  ┌──────────────┼──────────────────┐ │ │
-│  │ └─────────────┘ │    │  │   Cross-Platform Adapter       │ │ │
-│  │                 │    │  │  • React Web Renderer          │ │ │
-│  │ ┌─────────────┐ │    │  │  • React Native Renderer       │ │ │
-│  │ │  Synonym    │◄┼────┼──└────────────────────────────────┘ │ │
+│  │ ┌─────────────┐ │    │  ┌─────────────────────────────────┐│ │
+│  │ │ React Web   │◄┼────┼──┤      SmartIcon Component        ││ │
+│  │ └─────────────┘ │    │  └─────────────────────────────────┘│ │
+│  │                 │    │                 │                   │ │
+│  │ ┌─────────────┐ │    │  ┌──────────────┼──────────────────┐│ │
+│  │ │ React       │◄┼────┼──┤        Matching Engine          ││ │
+│  │ │ Native      │ │    │  │  • Exact Match (O1)             ││ │
+│  │ └─────────────┘ │    │  │  • Synonym Match                ││ │
+│  │                 │    │  │  • Prefix Match (Ok)            ││ │
+│  │ ┌─────────────┐ │    │  │  • Sentence Match (O n×k)       ││ │
+│  │ │   Expo      │◄┼────┼──└──────────────┼──────────────────┘│ │
+│  │ └─────────────┘ │    │                 │                   │ │
+│  └─────────────────┘    │  ┌──────────────┼──────────────────┐│ │
+│                         │  │         Icon Registry           ││ │
+│  ┌─────────────────┐    │  │  • 200+ Lucide Icons            ││ │
+│  │   DATA LAYER    │    │  │  • Custom Icon Families         ││ │
+│  │                 │    │  │  • Fallback Handler             ││ │
+│  │ ┌─────────────┐ │    │  └──────────────┼──────────────────┘│ │
+│  │ │ Icon DB     │◄┼────┼─────────────────┤                   │ │
+│  │ │ 200+ Icons  │ │    │  ┌──────────────┼──────────────────┐│ │
+│  │ └─────────────┘ │    │  │   Cross-Platform Adapter        ││ │
+│  │                 │    │  │  • React Web Renderer           ││ │
+│  │ ┌─────────────┐ │    │  │  • React Native Renderer        ││ │
+│  │ │  Synonym    │◄┼────┼──└─────────────────────────────────┘│ │
 │  │ │ Dictionary  │ │    │                                     │ │
 │  │ │ 1000+ Terms │ │    └─────────────────────────────────────┘ │
 │  │ └─────────────┘ │                                            │
@@ -183,11 +183,11 @@ function App() {
 │  │ ┌─────────────┐ │    ┌─────────────────────────────────────┐ │
 │  │ │  Category   │◄┼────┤       EXTERNAL DEPENDENCIES         │ │
 │  │ │   Index     │ │    │                                     │ │
-│  │ │  19 Cats    │ │    │  ┌─────────┐ ┌─────────┐ ┌─────────┐ │ │
-│  │ └─────────────┘ │    │  │ lucide- │ │ lucide- │ │ react-  │ │ │
-│  └─────────────────┘    │  │  react  │ │ native  │ │ native- │ │ │
-│                         │  │         │ │         │ │   svg   │ │ │
-│                         │  └─────────┘ └─────────┘ └─────────┘ │ │
+│  │ │  19 Cats    │ │    │  ┌─────────┐ ┌─────────┐ ┌─────────┐│ │
+│  │ └─────────────┘ │    │  │ lucide- │ │ lucide- │ │ react-  ││ │
+│  └─────────────────┘    │  │  react  │ │ native  │ │ native- ││ │
+│                         │  │         │ │         │ │   svg   ││ │
+│                         │  └─────────┘ └─────────┘ └─────────┘│ │
 │                         └─────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -225,20 +225,20 @@ function App() {
 
 ---
 
-## Features
+## ✨ Features
 
-- **Smart Synonym Matching**: Icons can be found by multiple names (e.g., "home", "house", "building")
-- **Fuzzy Prefix Matching**: Find icons by typing 3+ characters with `prefixMatch` prop
-- **Sentence Matching**: Extract icon names from sentences with `sentenceMatch` prop
-- **Flexible Prop Spreading**: All SVG/icon props are automatically supported
-- **Fallback Icons**: Graceful fallback when icons aren't found
-- **Cross-Platform**: Works with both React web and React Native
-- **TypeScript Support**: Full type definitions included
-- **High Performance**: O(1) lookups for exact matches, O(k) for fuzzy matches
+- 🎯 **Smart Synonym Matching**: Icons can be found by multiple names (e.g., "home", "house", "building")
+- 🔍 **Fuzzy Prefix Matching**: Find icons by typing 3+ characters with `prefixMatch` prop
+- 📝 **Sentence Matching**: Extract icon names from sentences with `sentenceMatch` prop
+- 🎨 **Flexible Prop Spreading**: All SVG/icon props are automatically supported
+- 🛡️ **Fallback Icons**: Graceful fallback when icons aren't found
+- 📱 **Cross-Platform**: Works with both React web and React Native
+- 🔷 **TypeScript Support**: Full type definitions included
+- ⚡ **High Performance**: O(1) lookups for exact matches, O(k) for fuzzy matches
 
 ---
 
-## Comprehensive Icon Dataset
+## 📊 Comprehensive Icon Dataset
 
 ### Dataset Statistics
 
@@ -342,7 +342,7 @@ home: {
 
 ---
 
-## API Reference
+## 📖 API Reference
 
 ### SmartIcon Props
 
@@ -484,7 +484,7 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 ---
 
-## Performance
+## ⚡ Performance
 
 ### Lookup Performance
 - **Exact Matches**: O(1) - Direct hash map lookup
@@ -505,7 +505,7 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 ---
 
-## Extensibility
+## 🔧 Extensibility
 
 ### Adding New Icons
 
@@ -558,17 +558,17 @@ registerIconFamily('feather', {
 
 ---
 
-## Contributing via Hacktoberfest 2025
+## 🤝 Contributing via Hacktoberfest 2025
 
-Contributions are welcome! This project is participating in **Hacktoberfest 2025**.
+Contributions are welcome! This project is participating in **Hacktoberfest 2025** 🎉
 
 You can contribute by:
-- Adding new icons or synonyms
-- Improving documentation
-- Enhancing performance or tests
-- Fixing bugs or issues
-- Adding internationalization support
-- Proposing new features
+- 🎨 Adding new icons or synonyms
+- 📚 Improving documentation
+- ⚡ Enhancing performance or tests
+- 🐛 Fixing bugs or issues
+- 🌍 Adding internationalization support
+- 💡 Proposing new features
 
 ### How to Contribute
 
@@ -587,26 +587,26 @@ Check out issues labeled with `good-first-issue` or `hacktoberfest` to get start
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Summary
+## 🎉 Summary
 
 Smart Icons Kit provides a comprehensive, high-performance icon solution for React applications with:
 
-- **200+ icons** with 1000+ synonyms across 19 categories
-- **Smart matching** with exact, fuzzy prefix, and sentence matching
-- **Flexible props** supporting all SVG attributes and event handlers
-- **Cross-platform** support for React web and React Native
-- **Type-safe** with full TypeScript support
-- **Extensible** architecture for custom icon families
-- **High performance** with O(1) exact matches and O(k) fuzzy matches
-- **Modular architecture** with clear separation of concerns
+- ✅ **200+ icons** with 1000+ synonyms across 19 categories
+- ✅ **Smart matching** with exact, fuzzy prefix, and sentence matching
+- ✅ **Flexible props** supporting all SVG attributes and event handlers
+- ✅ **Cross-platform** support for React web and React Native
+- ✅ **Type-safe** with full TypeScript support
+- ✅ **Extensible** architecture for custom icon families
+- ✅ **High performance** with O(1) exact matches and O(k) fuzzy matches
+- ✅ **Modular architecture** with clear separation of concerns
 
-Perfect for modern web and mobile applications that need a comprehensive, intelligent icon system!
+Perfect for modern web and mobile applications that need a comprehensive, intelligent icon system! 🚀
 
 ---
 
