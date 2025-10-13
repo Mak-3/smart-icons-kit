@@ -18,23 +18,23 @@
 
 **A smart icon component that works with both React web and React Native, featuring intelligent synonym matching, fuzzy prefix matching, and flexible prop spreading with fallback support.**
 
-[Installation](#installation) • [Quick Start](#quick-start) • [Architecture](#-architecture) • [Features](#features) • [Documentation](#api-reference) • [Contributing](#contributing-via-hacktoberfest-2025)
+[Installation](#installation) • [Quick Start](#quick-start) • [Architecture](#architecture) • [Features](#features) • [Documentation](#api-reference) • [Contributing](#contributing-via-hacktoberfest-2025)
 
 </div>
 
 ---
 
-## 🎥 Demo
+## Demo
 
 ![Smart Icons Kit Demo](./assets/smart-icons-kit.gif)
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 1. [Installation](#installation)
 2. [Quick Start](#quick-start)
-3. [🏗️ Architecture](#-architecture)
+3. [Architecture](#architecture)
 4. [Features](#features)
 5. [Comprehensive Icon Dataset](#comprehensive-icon-dataset)
 6. [API Reference](#api-reference)
@@ -46,7 +46,7 @@
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### For React Web
 ```bash
@@ -62,7 +62,7 @@ npm install smart-icons-kit react-native-svg lucide-react-native buffer
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### For React Web
 
@@ -140,7 +140,7 @@ function App() {
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### System Overview
 
@@ -166,26 +166,26 @@ function App() {
 │  │ └─────────────┘ │    │                 │                    │ │
 │  └─────────────────┘    │  ┌──────────────┼──────────────────┐ │ │
 │                         │  │         Icon Registry           │ │ │
-│  ┌─────────────────┐    │  │  • 200+ Lucide Icons           │ │ │
-│  │   DATA LAYER    │    │  │  • Custom Icon Families        │ │ │
-│  │                 │    │  │  • Fallback Handler            │ │ │
+│  ┌─────────────────┐    │  │  • 200+ Lucide Icons            │ │ │
+│  │   DATA LAYER    │    │  │  • Custom Icon Families         │ │ │
+│  │                 │    │  │  • Fallback Handler             │ │ │
 │  │ ┌─────────────┐ │    │  └──────────────┼──────────────────┘ │ │
 │  │ │ Icon DB     │◄┼────┼─────────────────┤                    │ │
 │  │ │ 200+ Icons  │ │    │  ┌──────────────┼──────────────────┐ │ │
 │  │ └─────────────┘ │    │  │   Cross-Platform Adapter       │ │ │
 │  │                 │    │  │  • React Web Renderer          │ │ │
 │  │ ┌─────────────┐ │    │  │  • React Native Renderer       │ │ │
-│  │ │  Synonym    │◄┼────┼──┤  • Prop Spreading Engine       │ │ │
-│  │ │ Dictionary  │ │    │  └────────────────────────────────┘ │ │
-│  │ │ 1000+ Terms │ │    │                                     │ │
-│  │ └─────────────┘ │    └─────────────────────────────────────┘ │
+│  │ │  Synonym    │◄┼────┼──└────────────────────────────────┘ │ │
+│  │ │ Dictionary  │ │    │                                     │ │
+│  │ │ 1000+ Terms │ │    └─────────────────────────────────────┘ │
+│  │ └─────────────┘ │                                            │
 │  │                 │                                            │
 │  │ ┌─────────────┐ │    ┌─────────────────────────────────────┐ │
 │  │ │  Category   │◄┼────┤       EXTERNAL DEPENDENCIES         │ │
 │  │ │   Index     │ │    │                                     │ │
 │  │ │  19 Cats    │ │    │  ┌─────────┐ ┌─────────┐ ┌─────────┐ │ │
-│  │ └─────────────┘ │    │  │ lucide- │ │lucide- │ │ react-  │ │ │
-│  └─────────────────┘    │  │  react  │ │ native │ │ native- │ │ │
+│  │ └─────────────┘ │    │  │ lucide- │ │ lucide- │ │ react-  │ │ │
+│  └─────────────────┘    │  │  react  │ │ native  │ │ native- │ │ │
 │                         │  │         │ │         │ │   svg   │ │ │
 │                         │  └─────────┘ └─────────┘ └─────────┘ │ │
 │                         └─────────────────────────────────────┘ │
@@ -194,18 +194,18 @@ function App() {
 
 ### Architecture Components
 
-#### 🎯 **Core Layer**
+#### Core Layer
 - **SmartIcon Component**: Main entry point with intelligent prop spreading
 - **Matching Engine**: Multi-layered icon discovery with O(1) to O(n×k) performance
 - **Icon Registry**: Centralized management with fallback support
 - **Cross-Platform Adapter**: Unified API for React Web and React Native
 
-#### 📊 **Data Layer**
+#### Data Layer
 - **Icon Database**: 200+ curated Lucide icons
 - **Synonym Dictionary**: 1000+ intelligent synonyms
 - **Category Index**: 19 organized icon categories
 
-#### 🔗 **External Dependencies**
+#### External Dependencies
 - **lucide-react**: Web icon components
 - **lucide-react-native**: Mobile icon components  
 - **react-native-svg**: SVG rendering for React Native
@@ -225,20 +225,20 @@ function App() {
 
 ---
 
-## ✨ Features
+## Features
 
-- 🎯 **Smart Synonym Matching**: Icons can be found by multiple names (e.g., "home", "house", "building")
-- 🔍 **Fuzzy Prefix Matching**: Find icons by typing 3+ characters with `prefixMatch` prop
-- 📝 **Sentence Matching**: Extract icon names from sentences with `sentenceMatch` prop
-- 🎨 **Flexible Prop Spreading**: All SVG/icon props are automatically supported
-- 🛡️ **Fallback Icons**: Graceful fallback when icons aren't found
-- 📱 **Cross-Platform**: Works with both React web and React Native
-- 🔷 **TypeScript Support**: Full type definitions included
-- ⚡ **High Performance**: O(1) lookups for exact matches, O(k) for fuzzy matches
+- **Smart Synonym Matching**: Icons can be found by multiple names (e.g., "home", "house", "building")
+- **Fuzzy Prefix Matching**: Find icons by typing 3+ characters with `prefixMatch` prop
+- **Sentence Matching**: Extract icon names from sentences with `sentenceMatch` prop
+- **Flexible Prop Spreading**: All SVG/icon props are automatically supported
+- **Fallback Icons**: Graceful fallback when icons aren't found
+- **Cross-Platform**: Works with both React web and React Native
+- **TypeScript Support**: Full type definitions included
+- **High Performance**: O(1) lookups for exact matches, O(k) for fuzzy matches
 
 ---
 
-## 📊 Comprehensive Icon Dataset
+## Comprehensive Icon Dataset
 
 ### Dataset Statistics
 
@@ -248,71 +248,71 @@ function App() {
 - **Total Synonyms**: 1000+ unique synonyms
 - **Categories**: 19+ organized categories
 
-### 🗂️ Icon Categories
+### Icon Categories
 
-#### **1. Navigation & UI (10 icons)**
+#### 1. Navigation & UI (10 icons)
 `home`, `search`, `menu`, `settings`, `user`, `users`, `bell`, `bellOff`, `eye`, `eyeOff`
 
-#### **2. Arrows & Navigation (16 icons)**
+#### 2. Arrows & Navigation (16 icons)
 `chevronDown`, `chevronUp`, `chevronLeft`, `chevronRight`, `chevronsDown`, `chevronsUp`, `chevronsLeft`, `chevronsRight`, `arrowDown`, `arrowUp`, `arrowLeft`, `arrowRight`, `arrowDownLeft`, `arrowDownRight`, `arrowUpLeft`, `arrowUpRight`
 
-#### **3. Basic Actions (10 icons)**
+#### 3. Basic Actions (10 icons)
 `plus`, `minus`, `x`, `check`, `circle`, `square`, `triangle`, `star`, `heart`, `bookmark`
 
-#### **4. Actions & Controls (15 icons)**
+#### 4. Actions & Controls (15 icons)
 `edit`, `edit2`, `edit3`, `save`, `copy`, `scissors`, `trash`, `trash2`, `delete`, `download`, `upload`, `share`, `share2`, `link`, `link2`, `externalLink`, `refreshCw`, `refreshCcw`
 
-#### **5. Media Controls (12 icons)**
+#### 5. Media Controls (12 icons)
 `play`, `pause`, `skipBack`, `skipForward`, `fastForward`, `rewind`, `volume`, `volume1`, `volume2`, `volumeX`
 
-#### **6. View Controls (8 icons)**
+#### 6. View Controls (8 icons)
 `maximize`, `minimize`, `maximize2`, `minimize2`, `rotateCw`, `rotateCcw`, `zoomIn`, `zoomOut`
 
-#### **7. Communication (18 icons)**
+#### 7. Communication (18 icons)
 `mail`, `messageCircle`, `messageSquare`, `phone`, `phoneCall`, `phoneIncoming`, `phoneOutgoing`, `phoneMissed`, `phoneOff`, `send`, `mic`, `micOff`, `headphones`, `speaker`, `video`, `videoOff`, `camera`, `cameraOff`
 
-#### **8. Files & Folders (16 icons)**
+#### 8. Files & Folders (16 icons)
 `file`, `fileText`, `filePlus`, `fileMinus`, `folder`, `folderPlus`, `folderMinus`, `folderOpen`, `image`, `film`, `music`, `package`, `archive`, `inbox`, `clipboard`, `paperclip`
 
-#### **9. Technology & Devices (18 icons)**
+#### 9. Technology & Devices (18 icons)
 `smartphone`, `tablet`, `monitor`, `laptop`, `tv`, `watch`, `hardDrive`, `server`, `database`, `cpu`, `wifi`, `wifiOff`, `bluetooth`, `battery`, `batteryCharging`, `power`, `zap`, `zapOff`
 
-#### **10. Social & Brand (8 icons)**
+#### 10. Social & Brand (8 icons)
 `facebook`, `twitter`, `instagram`, `linkedin`, `github`, `gitlab`, `youtube`, `slack`
 
-#### **11. Business & Finance (15 icons)**
+#### 11. Business & Finance (15 icons)
 `dollarSign`, `creditCard`, `shoppingCart`, `shoppingBag`, `package2`, `truck`, `briefcase`, `building`, `trendingUp`, `trendingDown`, `barChart`, `barChart2`, `pieChart`, `activity`, `target`
 
-#### **12. Time & Calendar (7 icons)**
+#### 12. Time & Calendar (7 icons)
 `calendar`, `clock`, `timer`, `sunrise`, `sunset`, `moon`, `sun`
 
-#### **13. Weather & Nature (16 icons)**
+#### 13. Weather & Nature (16 icons)
 `cloud`, `cloudRain`, `cloudSnow`, `cloudLightning`, `cloudDrizzle`, `cloudOff`, `umbrella`, `droplet`, `wind`, `thermometer`, `compass`, `map`, `mapPin`, `globe`, `navigation`, `navigation2`
 
-#### **14. Security & Privacy (6 icons)**
+#### 14. Security & Privacy (6 icons)
 `lock`, `unlock`, `shield`, `shieldOff`, `key`, `fingerprint`
 
-#### **15. Tools & Utilities (14 icons)**
+#### 15. Tools & Utilities (14 icons)
 `wrench`, `hammer`, `cog`, `sliders`, `filter`, `hash`, `tag`, `layers`, `grid`, `layout`, `sidebar`, `moreHorizontal`, `moreVertical`
 
-#### **16. Text & Typography (12 icons)**
+#### 16. Text & Typography (12 icons)
 `type`, `bold`, `italic`, `underline`, `alignLeft`, `alignCenter`, `alignRight`, `alignJustify`, `list`, `listOrdered`, `quote`, `code`, `terminal`, `command`
 
-#### **17. Status & Feedback (12 icons)**
+#### 17. Status & Feedback (12 icons)
 `checkCircle`, `xCircle`, `alertCircle`, `alertTriangle`, `alertOctagon`, `info`, `helpCircle`, `thumbsUp`, `thumbsDown`, `award`, `trophy`, `medal`, `flag`
 
-#### **18. Shapes & Symbols (6 icons)**
+#### 18. Shapes & Symbols (6 icons)
 `hexagon`, `octagon`, `diamond`, `cross`, `bookmarkPlus`, `bookmarkMinus`
 
-#### **19. Transport and Vehicle (5 icons)**
+#### 19. Transport and Vehicle (5 icons)
 `car`, `plane`, `train`, `ship`, `bus`
 
-#### **20. Miscellaneous (13 icons)**
+#### 20. Miscellaneous (13 icons)
 `coffee`, `gamepad2`, `palette`, `brush`, `pen`, `pencil`, `eraser`, `ruler`, `gift`, `cake`, `pizza`, `apple`, `carrot`, `leaf`, `trees`, `flower`, `bug`, `fish`, `bird`, `cat`, `dog`
 
 ### Key Features of the Dataset
 
-#### **Smart Synonym System**
+#### Smart Synonym System
 Each icon has 4-6 carefully curated synonyms:
 ```typescript
 home: {
@@ -321,7 +321,7 @@ home: {
 }
 ```
 
-#### **Comprehensive Coverage**
+#### Comprehensive Coverage
 - **Navigation**: All common UI navigation patterns
 - **Actions**: Complete set of user actions
 - **Communication**: Full communication suite
@@ -330,19 +330,19 @@ home: {
 - **Nature**: Weather and natural elements
 - **Tools**: Development and utility tools
 
-#### **No Duplicates**
+#### No Duplicates
 - Each icon name is unique
 - No conflicting synonyms
 - Clean, organized structure
 
-#### **Valid Icons**
+#### Valid Icons
 - All icons exist in Lucide React/React Native
 - Tested and verified imports
 - Consistent naming conventions
 
 ---
 
-## 📖 API Reference
+## API Reference
 
 ### SmartIcon Props
 
@@ -369,7 +369,7 @@ All standard SVG props are supported through prop spreading:
 
 ---
 
-## 🎯 Advanced Usage
+## Advanced Usage
 
 ### Fuzzy Matching
 
@@ -484,7 +484,7 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 ---
 
-## ⚡ Performance
+## Performance
 
 ### Lookup Performance
 - **Exact Matches**: O(1) - Direct hash map lookup
@@ -505,7 +505,7 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 ---
 
-## 🔧 Extensibility
+## Extensibility
 
 ### Adding New Icons
 
@@ -558,17 +558,17 @@ registerIconFamily('feather', {
 
 ---
 
-## 🤝 Contributing via Hacktoberfest 2025
+## Contributing via Hacktoberfest 2025
 
-Contributions are welcome! This project is participating in **Hacktoberfest 2025** 🎉
+Contributions are welcome! This project is participating in **Hacktoberfest 2025**.
 
 You can contribute by:
-- 🎨 Adding new icons or synonyms
-- 📚 Improving documentation
-- ⚡ Enhancing performance or tests
-- 🐛 Fixing bugs or issues
-- 🌍 Adding internationalization support
-- 💡 Proposing new features
+- Adding new icons or synonyms
+- Improving documentation
+- Enhancing performance or tests
+- Fixing bugs or issues
+- Adding internationalization support
+- Proposing new features
 
 ### How to Contribute
 
@@ -587,26 +587,26 @@ Check out issues labeled with `good-first-issue` or `hacktoberfest` to get start
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🎉 Summary
+## Summary
 
 Smart Icons Kit provides a comprehensive, high-performance icon solution for React applications with:
 
-- ✅ **200+ icons** with 1000+ synonyms across 19 categories
-- ✅ **Smart matching** with exact, fuzzy prefix, and sentence matching
-- ✅ **Flexible props** supporting all SVG attributes and event handlers
-- ✅ **Cross-platform** support for React web and React Native
-- ✅ **Type-safe** with full TypeScript support
-- ✅ **Extensible** architecture for custom icon families
-- ✅ **High performance** with O(1) exact matches and O(k) fuzzy matches
-- ✅ **Modular architecture** with clear separation of concerns
+- **200+ icons** with 1000+ synonyms across 19 categories
+- **Smart matching** with exact, fuzzy prefix, and sentence matching
+- **Flexible props** supporting all SVG attributes and event handlers
+- **Cross-platform** support for React web and React Native
+- **Type-safe** with full TypeScript support
+- **Extensible** architecture for custom icon families
+- **High performance** with O(1) exact matches and O(k) fuzzy matches
+- **Modular architecture** with clear separation of concerns
 
-Perfect for modern web and mobile applications that need a comprehensive, intelligent icon system! 🚀
+Perfect for modern web and mobile applications that need a comprehensive, intelligent icon system!
 
 ---
 
