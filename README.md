@@ -242,11 +242,11 @@ function App() {
 
 ### Dataset Statistics
 
-- **Total Icons**: 200+
-- **React Web**: 200+ icons with 4-6 synonyms each
-- **React Native**: 200+ icons with 4-6 synonyms each
-- **Total Synonyms**: 1000+ unique synonyms
-- **Categories**: 19+ organized categories
+- **Total Icons**: 225+
+- **React Web**: 225+ icons with 4-6 synonyms each
+- **React Native**: 225+ icons with 4-6 synonyms each
+- **Total Synonyms**: 1150+ unique synonyms
+- **Categories**: 22 organized categories
 
 ### Icon Categories
 
@@ -307,7 +307,16 @@ function App() {
 #### 19. Transport and Vehicle (5 icons)
 `car`, `plane`, `train`, `ship`, `bus`
 
-#### 20. Miscellaneous (13 icons)
+#### 20. AI & Modern Tech (14 icons) ⭐ NEW
+`brain`, `brainCircuit`, `sparkles`, `bot`, `webhook`, `workflow`, `blocks`, `network`, `cloudCog`, `container`, `code2`, `braces`, `binary`, `scan`
+
+#### 21. Education & Learning (3 icons) ⭐ NEW
+`bookOpen`, `graduationCap`, `school`
+
+#### 22. Health & Medical (8 icons) ⭐ NEW
+`hospital`, `pill`, `syringe`, `stethoscope`, `dna`, `microscope`, `heartPulse`, `ambulance`
+
+#### 23. Miscellaneous (13 icons)
 `coffee`, `gamepad2`, `palette`, `brush`, `pen`, `pencil`, `eraser`, `ruler`, `gift`, `cake`, `pizza`, `apple`, `carrot`, `leaf`, `trees`, `flower`, `bug`, `fish`, `bird`, `cat`, `dog`
 
 ### Key Features of the Dataset

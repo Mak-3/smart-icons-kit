@@ -63,6 +63,17 @@ import {
   Gift, Cake, Pizza, Apple, Carrot, Leaf, Trees, Flower, Bug, Fish, Bird, Cat, Dog,
   Bed,
 
+  // AI & Modern Tech (NEW CATEGORY - Strategic Addition)
+  Brain, BrainCircuit, Sparkles, Bot,
+  Webhook, Workflow, Blocks, Network,
+  CloudCog, Container, Code2, Braces, Binary, Scan,
+
+  // Education & Learning (NEW CATEGORY)
+  BookOpen, GraduationCap, School,
+
+  // Health & Medical (NEW CATEGORY)
+  Pill, Syringe, Stethoscope, Hospital, Dna, Microscope, HeartPulse, Ambulance,
+
 } from "lucide-react";
 import type { IconMap } from "../shared/types";
 
@@ -1113,5 +1124,117 @@ export const lucideMap: IconMap = {
   dog: {
     synonyms: ["dog", "canine", "loyal"],
     component: Dog,
+  },
+
+  // ========================================
+  // AI & Modern Tech (NEW CATEGORY - 14 icons)
+  // ========================================
+  brain: {
+    synonyms: ["brain", "ai", "ml", "intelligence", "neural", "cognitive", "smart"],
+    component: Brain,
+  },
+  brainCircuit: {
+    synonyms: ["brain-circuit", "neural-network", "deep-learning", "ai-model", "neuron", "neural"],
+    component: BrainCircuit,
+  },
+  sparkles: {
+    synonyms: ["sparkles", "magic", "ai", "auto", "smart", "enhance", "improve"],
+    component: Sparkles,
+  },
+  bot: {
+    synonyms: ["bot", "robot", "chatbot", "assistant", "automation", "ai-agent"],
+    component: Bot,
+  },
+  webhook: {
+    synonyms: ["webhook", "api", "integration", "automation", "trigger", "endpoint"],
+    component: Webhook,
+  },
+  workflow: {
+    synonyms: ["workflow", "automation", "process", "pipeline", "flow", "sequence"],
+    component: Workflow,
+  },
+  blocks: {
+    synonyms: ["blocks", "components", "modules", "building-blocks", "lego", "modular"],
+    component: Blocks,
+  },
+  network: {
+    synonyms: ["network", "nodes", "graph", "connections", "distributed", "mesh"],
+    component: Network,
+  },
+  cloudCog: {
+    synonyms: ["cloud-cog", "cloud-config", "infrastructure", "devops", "cloud-settings"],
+    component: CloudCog,
+  },
+  container: {
+    synonyms: ["container", "docker", "kubernetes", "pod", "k8s", "containerization"],
+    component: Container,
+  },
+  code2: {
+    synonyms: ["code-2", "programming", "development", "coding", "script", "dev"],
+    component: Code2,
+  },
+  braces: {
+    synonyms: ["braces", "json", "object", "code-block", "syntax", "curly"],
+    component: Braces,
+  },
+  binary: {
+    synonyms: ["binary", "code", "data", "digital", "bits", "machine-code"],
+    component: Binary,
+  },
+  scan: {
+    synonyms: ["scan", "analyze", "detect", "inspect", "security-scan", "audit"],
+    component: Scan,
+  },
+
+  // ========================================
+  // Education & Learning (NEW CATEGORY - 3 icons)
+  // ========================================
+  bookOpen: {
+    synonyms: ["book-open", "read", "reading", "study", "learn", "knowledge"],
+    component: BookOpen,
+  },
+  graduationCap: {
+    synonyms: ["graduation-cap", "degree", "diploma", "education", "graduate", "achievement"],
+    component: GraduationCap,
+  },
+  school: {
+    synonyms: ["school", "university", "college", "academy", "education", "campus"],
+    component: School,
+  },
+
+  // ========================================
+  // Health & Medical (NEW CATEGORY - 8 icons)
+  // ========================================
+  hospital: {
+    synonyms: ["hospital", "clinic", "medical", "healthcare", "emergency", "er"],
+    component: Hospital,
+  },
+  pill: {
+    synonyms: ["pill", "medicine", "medication", "drug", "pharmacy", "prescription"],
+    component: Pill,
+  },
+  syringe: {
+    synonyms: ["syringe", "injection", "vaccine", "shot", "immunization", "needle"],
+    component: Syringe,
+  },
+  stethoscope: {
+    synonyms: ["stethoscope", "doctor", "medical", "checkup", "examination", "diagnosis"],
+    component: Stethoscope,
+  },
+  dna: {
+    synonyms: ["dna", "genetics", "gene", "biology", "genome", "heredity"],
+    component: Dna,
+  },
+  microscope: {
+    synonyms: ["microscope", "lab", "research", "science", "analyze", "laboratory"],
+    component: Microscope,
+  },
+  heartPulse: {
+    synonyms: ["heart-pulse", "heartbeat", "vital", "monitor", "health", "cardio"],
+    component: HeartPulse,
+  },
+  ambulance: {
+    synonyms: ["ambulance", "emergency", "ems", "paramedic", "rescue", "911"],
+    component: Ambulance,
   }
 };
