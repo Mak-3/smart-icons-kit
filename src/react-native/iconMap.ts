@@ -22,9 +22,7 @@ import {
   // Technology & Devices
   Smartphone, Tablet, Monitor, Laptop, Tv, Watch, HardDrive, Server, Database, Cpu,
   Wifi, WifiOff, Bluetooth, Battery, BatteryCharging, Power, Zap, ZapOff,
-  
-  // Social & Brand
-  Facebook, Twitter, Instagram, Linkedin, Github, Gitlab, Youtube, Slack,
+
   
   // Business & Finance
   DollarSign, CreditCard, ShoppingCart, ShoppingBag, Package2, Truck, Briefcase, Building,
@@ -599,35 +597,35 @@ export const lucideMap: IconMap = {
   // Social & Brand
   facebook: {
     synonyms: ["facebook", "fb"],
-    component: Facebook,
+    component: Globe,
   },
   twitter: {
     synonyms: ["twitter", "tweet"],
-    component: Twitter,
+    component: MessageCircle,
   },
   instagram: {
     synonyms: ["instagram", "ig"],
-    component: Instagram,
+    component: Camera,
   },
   linkedin: {
     synonyms: ["linkedin", "professional", "career"],
-    component: Linkedin,
+    component: Briefcase,
   },
   github: {
     synonyms: ["github", "git"],
-    component: Github,
+    component: Code,
   },
   gitlab: {
     synonyms: ["gitlab"],
-    component: Gitlab,
+    component: Code,
   },
   youtube: {
     synonyms: ["youtube", "stream", "watch"],
-    component: Youtube,
+    component: Play,
   },
   slack: {
     synonyms: ["slack", "team", "communication", "work"],
-    component: Slack,
+    component: MessageSquare,
   },
   
   // Business & Finance
